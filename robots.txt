@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://zyj1022.github.io/imeetyou/sitemap.xml
