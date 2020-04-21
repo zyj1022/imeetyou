@@ -6,37 +6,10 @@
     <description>Recent content in Tags on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Aug 2017 15:43:48 +0800</lastBuildDate>
     
 	<atom:link href="https://zyj1022.github.io/imeetyou/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>preview</title>
-      <link>https://zyj1022.github.io/imeetyou/tags/preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://zyj1022.github.io/imeetyou/tags/preview/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-3</title>
-      <link>https://zyj1022.github.io/imeetyou/tags/tag-3/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://zyj1022.github.io/imeetyou/tags/tag-3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Theme preview</title>
-      <link>https://zyj1022.github.io/imeetyou/tags/theme-preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://zyj1022.github.io/imeetyou/tags/theme-preview/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>English</title>
@@ -44,6 +17,15 @@
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
       <guid>https://zyj1022.github.io/imeetyou/tags/english/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>preview</title>
+      <link>https://zyj1022.github.io/imeetyou/tags/preview/</link>
+      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
+      
+      <guid>https://zyj1022.github.io/imeetyou/tags/preview/</guid>
       <description></description>
     </item>
     
