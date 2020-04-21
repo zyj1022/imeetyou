@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shortcodes on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/shortcodes/</link>
+    <link>https://zyj1022.github.io/imeetyou/tags/shortcodes/</link>
     <description>Recent content in shortcodes on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <lastBuildDate>Tue, 30 Aug 2016 16:01:23 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/shortcodes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zyj1022.github.io/imeetyou/tags/shortcodes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Shortcodes</title>
-      <link>http://localhost:1313/post/shortcodes/</link>
+      <link>https://zyj1022.github.io/imeetyou/post/shortcodes/</link>
       <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/shortcodes/</guid>
+      <guid>https://zyj1022.github.io/imeetyou/post/shortcodes/</guid>
       <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;biu biu biu.&lt;/p&gt;
