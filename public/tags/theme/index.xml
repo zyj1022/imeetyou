@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>theme on 知也无涯</title>
+    <link>/tags/theme/</link>
+    <description>Recent content in theme on 知也无涯</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>ZHIKING</copyright>
+    <lastBuildDate>Thu, 08 Dec 2016 12:42:32 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/theme/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何自定义Atom主题</title>
+      <link>/post/2016/atom-custom-theme/</link>
+      <pubDate>Thu, 08 Dec 2016 12:42:32 +0000</pubDate>
+      
+      <guid>/post/2016/atom-custom-theme/</guid>
+      <description>使用Atom有段时间，一直使用别人的主题，想着自己也制作一款主题，便再 官网 上研究一番： aotm主题，分为两种，一种是界面主题，一种是语法主题</description>
+    </item>
+    
+  </channel>
+</rss>

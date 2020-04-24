@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>array on 知也无涯</title>
+    <link>/tags/array/</link>
+    <description>Recent content in array on 知也无涯</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>ZHIKING</copyright>
+    <lastBuildDate>Thu, 23 Mar 2017 17:24:23 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/array/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript数组常见问题</title>
+      <link>/post/2017/js-array-issue/</link>
+      <pubDate>Thu, 23 Mar 2017 17:24:23 +0000</pubDate>
+      
+      <guid>/post/2017/js-array-issue/</guid>
+      <description>1、删除数组里指定的某个元素 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 var arr = [3,2,3,3,5,3], val = 3; var removeElement = function(arr, elm) { for (var i = 0; i &amp;lt; arr.length; i++) { if (arr[i] == elm) { arr.splice(i, 1); i--; } } return arr; }; console.log(removeElement(arr, val)); // [2, 5]</description>
+    </item>
+    
+    <item>
+      <title>Javascript基础之数组</title>
+      <link>/post/2017/js-array-base/</link>
+      <pubDate>Wed, 22 Mar 2017 11:34:42 +0000</pubDate>
+      
+      <guid>/post/2017/js-array-base/</guid>
+      <description>简介 数组是编程语言中应用最广泛的存储结构，在 ECMAScript 中数组是非常常用的引用类型。很有必要将数组的内容捋一遍，加深印象。 数组属性 constructor 表示引用数组对象的</description>
+    </item>
+    
+  </channel>
+</rss>
