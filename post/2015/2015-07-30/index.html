@@ -1,0 +1,716 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>团队规范文档 - 知也无涯</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="ZHIKING"><meta name=description content="目录结构 引入亚信UED的基础前端框架，包括JS底层库，UI样式库，开发规范，自动化工具，团队知识库 引入cmd,seajs,nodejs,gr"><meta name=keywords content="Hugo,blog,智的博客"><meta name=generator content="Hugo 0.69.0 with theme even"><link rel=canonical href=/post/2015/2015-07-30/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="团队规范文档"><meta property="og:description" content="目录结构 引入亚信UED的基础前端框架，包括JS底层库，UI样式库，开发规范，自动化工具，团队知识库 引入cmd,seajs,nodejs,gr"><meta property="og:type" content="article"><meta property="og:url" content="/post/2015/2015-07-30/"><meta property="article:published_time" content="2015-07-30T00:00:00+00:00"><meta itemprop=name content="团队规范文档"><meta itemprop=description content="目录结构 引入亚信UED的基础前端框架，包括JS底层库，UI样式库，开发规范，自动化工具，团队知识库 引入cmd,seajs,nodejs,gr"><meta itemprop=wordCount content="4965"><meta itemprop=keywords content="frontend,"><meta name=twitter:card content="summary"><meta name=twitter:title content="团队规范文档"><meta name=twitter:description content="目录结构 引入亚信UED的基础前端框架，包括JS底层库，UI样式库，开发规范，自动化工具，团队知识库 引入cmd,seajs,nodejs,gr"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script data-ad-client=ca-pub-3216129127646136 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/js/baidutongji.js async></script><script src=/js/baidutuisong.js async></script><link rel=stylesheet href=/css/search.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>知也无涯</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>知也无涯</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><a href=#ex1 rel=modal:open><i class="fas fa-search fa-fw"></i></a></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>团队规范文档</h1><div class=post-meta><span class=post-time>2015-07-30</span><div class=post-category><a href=/categories/frontend/>frontend</a></div><span class=more-meta>约 4965 字</span>
+<span class=more-meta>预计阅读 10 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#目录结构>目录结构</a></li><li><a href=#命名规范>命名规范</a><ul><li></li></ul></li><li><a href=#css>CSS</a><ul><li></li></ul></li><li><a href=#javascript>JavaScript</a><ul><li></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=目录结构>目录结构</h2><ul><li><p>引入亚信UED的基础前端框架，包括JS底层库，UI样式库，开发规范，自动化工具，团队知识库</p></li><li><p>引入cmd,seajs,nodejs,grunt,npm,markdown等</p></li><li><p>细化各级目录分类，方便清晰管理，考虑文件的部署压缩合并</p><pre><code>  my-project-name
+  │
+  ├── res
+  │   ├── conf	// ajax数据接口，seajs配置，Grunt配置，npm包管理
+  │   ├── ai
+  │   │  ├── aijs		// JS库，包含基础扩展以及工具方法
+  │   │  ├── aiui		// UI库，包含样式模块以及交互组件
+  │   │  ├── aicg		// 编码规范[MD]，包含各种书写规范以及校验工具
+  │   │  ├── aimd		// 知识库[MD]，包含新人成长，以及常见疑难问题解决方案
+  │   │  └── aiat		// 工具库[MD]，包含前端开发以及自动化部署工具
+  │   ├── scripts
+  │   │  ├── lib		// 基础框架 jQuery, Zepto, Handlebars, extjs
+  │   │  ├── fn 		// 功能库 D3.js, Map.js
+  │   │  ├── ui 		// 插件库 zTree, omGrid, My97, artDialog, autocomplete, validform
+  │   │  └── page 	
+  │   │  	  ├── common	// 公用的模块
+  │   │  	  ├── login		// 登录 		
+  │   │  	  ├── search    // 搜索  	
+  │   │  	  └── business  // 办理  
+  │   ├── models 	
+  │   │  ├── widget   // 插件模块
+  │   │  │  └── collapse   
+  │   │  │     ├── data   // 数据
+  │   │  │     ├── tpl    // 模版		
+  │   │  │     └── hbs    // 模版预编译
+  │   │  │
+  │   │  └── page
+  │   │  	  ├── common	// 公用的模块
+  │   │     │  ├── data   	
+  │   │     │  ├── tpl    			
+  │   │     │  └── hbs    		
+  │   │  	  ├── login		// 登录 		
+  │   │  	  └── search    // 搜索  
+  │   ├── styles
+  │   │  ├── globe		// 全局样式，Less生成主题文件
+  │   │  │  ├── default
+  │   │  │  │  └── globe.css   		// 默认主题
+  │   │  │  ├── blue
+  │   │  │  │  └── globe.blue.css   	// 蓝色主题		
+  │   │  │  └── dark
+  │   │  │     └── globe.dark.css   	// 黑色主题
+  │   │  └── page			
+  │   │  	  ├── login		
+  │   │     │  └── login.css   // 登录页样式				
+  │   │  	  └── search    
+  │   │        └── search.css  // 搜索页样式
+  │   │
+  │   ├── page
+  │   │  ├── search.html    // 搜索页面  	
+  │   │  └── business
+  │   │     ├── query.html    // 查询页面				
+  │   │     └── pay.html      // 充值页面				
+  │   │
+  │   └── index.html
+  │
+  └── login.html
+</code></pre></li></ul><h2 id=命名规范>命名规范</h2><h4 id=css-类名>CSS 类名</h4><ul><li>保持 Class 命名为全小写，可以使用短划线（不要使用下划线和 camelCase驼峰式命名）</li><li>短划线应该作为相关类的自然间断。(例如，<code>.btn</code> 和 <code>.btn-danger</code>)。</li><li>避免过度使用简写。.btn 可以很好地描述 button，但是 .s 不能代表任何元素。</li><li>Class 的命名应该尽量短，也要尽量明确。</li><li>使用有意义的名称；使用结构化或者作用目标相关，而不是抽象的名称。</li><li>命名时使用最近的父节点或者父 class 作为前缀</li><li>使用 .js-* classes 来表示行为(相对于样式)，但是不要在 CSS 中包含这些 classes。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		/* Bad example */
+		.t { ... }
+		.red { ... }
+		.header { ... }
+
+		/* Good example */
+		.tweet { ... }
+		.important { ... }
+		.tweet-header { ... }
+</code></pre></td></tr></table></div></div><h4 id=javascript-变量命名>JavaScript 变量命名</h4><ul><li>标准变量采用驼峰标识</li><li>使用的ID的地方一定全大写</li><li>使用的URL的地方一定全大写, 比如说 reportURL</li><li>涉及Android的，一律大写第一个字母</li><li>涉及iOS的，一律小写第一个，大写后两个字母</li><li>常量采用大写字母，下划线连接的方式</li><li>构造函数，大写第一个字母</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		var thisIsMyName;
+
+		var goodID;
+
+		var AndroidVersion;
+
+		var iOSVersion;
+
+		var MAX_COUNT = 10;
+
+		function Person(name) {
+		    this.name = name
+		}
+</code></pre></td></tr></table></div></div><p>####HTML，TPL文件命名</p><ul><li>多个单词组成时，采用中划线连接方式，比如说：error-report.html</li></ul><p>####CSS，LESS文件命名</p><ul><li>多个单词组成时，采用中划线连接方式，比如说: retina-sprites.scss</li></ul><p>####JavaScript，JSON文件命名</p><ul><li>多个单词组成时，采用中划线连接方式，比如说：账号模型文件 account-model.js</li></ul><p>##HTML
+####基础设施</p><ul><li><p>文档声明，文件应以“”首行顶格开始，推荐使用html5文档类型</p><pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+      &lt;head&gt;
+      &lt;/head&gt;
+  &lt;/html&gt;
+</code></pre></li><li><p>语言种类，默认声明文档使用中文</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		&lt;html lang=&#34;zh-cn&#34;&gt;
+		    &lt;!-- ... --&gt;
+		&lt;/html&gt;
+</code></pre></td></tr></table></div></div><ul><li>页面编码，必须申明文档的charset编码，且与文件本身编码保持一致，推荐使用utf-8编码</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		&lt;head&gt;
+		    &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html;charset=utf-8&#34;/&gt;
+		&lt;/head&gt;
+</code></pre></td></tr></table></div></div><ul><li>IE兼容模式，默认使用最高浏览器的渲染模式，考虑向后兼容</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=Edge&#34;&gt;
+</code></pre></td></tr></table></div></div><ul><li>样式和脚本，引入 CSS 和 JavaScript 时不需要指明 type</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		&lt;!DOCTYPE html&gt;
+		&lt;html lang=&#34;zh-cn&#34;&gt;
+			&lt;head&gt;
+			    &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html;charset=utf-8&#34;&gt;
+			    &lt;title&gt;HTML规范&lt;/title&gt;
+			    &lt;link rel=&#34;stylesheet&#34; href=&#34;style.css&#34;/&gt;
+			    &lt;style&gt;&lt;/style&gt;
+			&lt;/head&gt;
+			&lt;body&gt;
+			    &lt;script src=&#34;script.js&#34;&gt;&lt;/script&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+</code></pre></td></tr></table></div></div><h4 id=书写格式>书写格式</h4><ul><li>代码保持简洁的树形结构，必须使用四个空格的TAB键来进行代码缩进</li><li>HTML标签名、属性和值全部小写，属性不能为空且必须加双引号</li><li>不要使用<code>&nbsp</code>进行缩进</li><li>不要使用行内样式</li><li>不要在内联元素中嵌入块级元素</li><li>不要在自动闭合标签结尾处使用斜线<ul><li><code>&lt;img src="photo.png" alt="头像"></code></li></ul></li><li>不要在<code>Boolean</code>属性值中声明取值的属性<ul><li><code>&lt;input type="text" disabled></code></li></ul></li><li>HTML 属性应该按照特定的顺序出现以保证易读性<ul><li><code>id</code></li><li><code>class</code></li><li><code>name</code></li><li><code>data-*</code></li><li><code>src</code>,<code>for</code>,<code>type</code>,<code>href</code></li><li><code>title</code>, <code>alt</code></li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>			&lt;a id=&#34;code_guide&#34; class=&#34;code-guide&#34; data-modal=&#34;toggle&#34; href=&#34;#&#34;&gt;Link&lt;/a&gt;
+			&lt;input name=&#34;sex&#34; class=&#34;form-control&#34; type=&#34;text&#34;&gt;
+			&lt;img src=&#34;photo.jpg&#34; alt=&#34;头像&#34;&gt;
+</code></pre></td></tr></table></div></div><h4 id=语义优化>语义优化</h4><ul><li>根据网页中某种类型的内容，使用特定HTML语义化的标签编写页面结构</li><li>对a元素提供title属性，img提供alt属性，加强"资源型"内容的可访问性</li><li>当空标签使用背景图时，必须加上相对应的文字说明，并按需隐藏文字，加强"不可见"内容的可访问性</li><li>使用div代替table进行布局，但是表现具有明显表格的数据，table还是首选</li><li>实用高于完美，尽量的遵循 HTML 标准和语义，但是不应该以浪费实用性作为代价</li></ul><h2 id=css>CSS</h2><h4 id=基础设施>基础设施</h4><ul><li>CSS文件顶格位置申明文档的编码charset，推荐使用UTF-8编码</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		@charset &#34;utf-8&#34;;
+</code></pre></td></tr></table></div></div><ul><li><p>样式表中的中文字体使用unicode转码</p><pre><code>  font-family: Tahoma, &quot;\5fae\8f6f\96c5\9ed1&quot;, &quot;\5B8B\4F53&quot;;
+</code></pre></li><li><p>使用clearfix或overflow清除子元素的浮动，而不是空标签</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		.clearfix:after{
+		    visibility:hidden;
+		    display:block;
+		    font-size:0;
+		    content:&#34; &#34;;
+		    clear:both;
+		    height:0;
+		}
+		.clearfix{
+		    zoom:1;
+		}
+</code></pre></td></tr></table></div></div><ul><li>针对某个浏览器写的样式或某个浏览器BUG的样式，必须加上注释说明</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		.clearfix{
+		    zoom:1; /* for IE6 IE7 */
+		}
+</code></pre></td></tr></table></div></div><ul><li>不使用影响页面性能expression表达式与filter，实现必要的特殊效果时，允许使用</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		/* expression */
+		.class{width:expression(this.width&gt;100?&#39;100px&#39;:&#39;auto&#39;);}
+
+		/* filter */
+		.class{filter:alpha(opacity=50);}
+</code></pre></td></tr></table></div></div><h4 id=书写格式-1>书写格式</h4><ul><li>使用四个空格的TAB键来进行代码缩，保证代码在各种环境下显示一致</li><li>为了代码的易读性，在每个声明的左括号前增加一个空格。</li><li>声明块的右括号应该另起一行</li><li>选择器、属性和值都使用小写，并且为选择器中的属性取值添加引号<code>input[type="text"]</code></li><li>使用组合选择器时，保持每个独立的选择器占用一行</li><li>使用逗号分隔的取值，都应该在逗号之后增加一个空格。比如说<code>box-shadow</code></li><li>最后一个属性值也以分号结尾，避免后期对维护带来的麻烦</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		.selector,
+		.selector-secondary,
+		.selector[type=&#34;text&#34;] {
+		    padding: 15px;
+		    margin-bottom: 15px;
+		    box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
+		}
+</code></pre></td></tr></table></div></div><ul><li>所有的十六进制值都应该使用小写字母，并且使用缩写方式 <code>color:#fff;</code></li><li>当值为0时省略单位 <code>margin:0;</code></li><li><code>z-index</code>一般以5为一个步长（如50,55,60），方便以后增加或修改</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		.ui-box1 {
+		    z-index: 50;
+		}
+		.ui-box2 {
+		    z-index: 55;
+		}
+</code></pre></td></tr></table></div></div><ul><li>省略url引用中的引号，其他需要引号的地方使用双引号</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		.ui-box {
+		    background:url(bg.png);
+		}
+		.ui-box:after {
+		    content:&#34;.&#34;;
+		}
+</code></pre></td></tr></table></div></div><ul><li>先写带有浏览器私有标志的，并且通过缩进使取值垂直对齐以便多行编辑。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		.ui-box {
+		    -webkit-box-shadow:0 0 0 #000;
+		       -moz-box-shadow:0 0 0 #000;
+		            box-shadow:0 0 0 #000;
+		}
+</code></pre></td></tr></table></div></div><ul><li>不建议使用<code>!important</code>，不建议使用<code>@import</code>，</li><li>原则上不允许使用Hack，不兼容问题可以通过改变方法和思路来解决，对于浏览器自身的缺陷，可以允许使用适当的Hack</li><li>当使用属性简写时你必须设置所有取值，常见的属性滥用包括<ul><li><code>padding</code>,<code>margin</code>,<code>font</code>,<code>background</code>,<code>border</code>,<code>border-radius</code></li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>			/* Bad example */
+			.element {
+			    margin: 0 0 10px;
+			    background: red;
+			    background: url(&#34;image.jpg&#34;);
+			    border-radius: 3px 3px 0 0;
+			}
+
+			/* Good example */
+			.element {
+			    margin-bottom: 10px;
+			    background-color: red;
+			    background-image: url(&#34;image.jpg&#34;);
+			    border-top-left-radius: 3px;
+			    border-top-right-radius: 3px;
+			}
+</code></pre></td></tr></table></div></div><ul><li>根据属性的重要性按顺序书写<ul><li>Positioning 位置 > Box model 盒模型 > Typographic 排版 > Visual 外观 > Misc 混杂</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>			.declaration-order {
+			    /* Positioning 位置*/
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    z-index: 100;
+
+			    /* Box-model 盒模型*/
+			    display: block;
+			    float: right;
+			    width: 100px;
+			    height: 100px;
+
+			    /* Typography 排版*/
+			    font: normal 13px &#34;Helvetica Neue&#34;, sans-serif;
+			    line-height: 1.5;
+			    color: #333;
+			    text-align: center;
+
+			    /* Visual 外观*/
+			    background-color: #f5f5f5;
+			    border: 1px solid #e5e5e5;
+			    border-radius: 3px;
+
+			    /* Misc 混杂*/
+			    opacity: 1;
+			}
+</code></pre></td></tr></table></div></div><h4 id=代码组织>代码组织</h4><ul><li>以模块为单位组织代码，使用继承以及提取公共样式，提高代码复用率</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		&lt;!-- ui-box:模块基类，用于定义模块的公共结构样式 --&gt;
+		&lt;div class=&#34;ui-box&#34;&gt;
+
+		    &lt;!-- ui-box-head:模块头部 --&gt;
+		    &lt;div class=&#34;ui-box-head&#34;&gt;
+		        &lt;h3 class=&#34;ui-box-head-title&#34;&gt;标题&lt;/h3&gt;
+		    &lt;/div&gt;
+
+		    &lt;!-- ui-box-container:模块内容 --&gt;
+		    &lt;div class=&#34;ui-box-container&#34;&gt;
+		        &lt;div class=&#34;ui-box-content&#34;&gt;内容&lt;/div&gt;
+		    &lt;/div&gt;
+		&lt;/div&gt;
+</code></pre></td></tr></table></div></div><h2 id=javascript>JavaScript</h2><h4 id=缩进分号换行空格>缩进,分号,换行,空格</h4><ul><li>4个空格保持代码缩进</li><li>在语句末尾使用分号结束，清楚语句的起止位置</li><li>多于120个字符应换行，优先在左花括号后、操作符后进行换行；</li><li>if else前后留有空格</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		if (typeof state === &#34;undefined&#34; ||
+		    typeof state.cdnrejected === &#34;undefined&#34; ||
+		    state.cdnrejected !== true) {
+		    url = &#34;http://pub.state.com/qqfind/js/location4.js&#34;;
+		} else {
+		    url = &#34;http://find.state.com/js/location4.js&#34;;
+		}
+</code></pre></td></tr></table></div></div><h4 id=空行>空行</h4><ul><li>方法之间加</li><li>单行或多行注释前加</li><li>逻辑块之间加空行增加可读性</li></ul><h4 id=括号对齐>括号对齐</h4><ul><li>括号前后有空格， 花括号起始 不另换行，结尾新起一行</li><li>花括号必须要， 即使内容只有一行， 决不允许右边第二种情况</li><li>涉及 if for while do&mldr;while try&mldr;catch&mldr;finally 的地方都必须使用花括号</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		// Good
+		if (condition) {
+		    doSomething();
+		}
+
+		// Bad
+		if (condition)
+		    doSomething();
+		    doSomethingElse();
+</code></pre></td></tr></table></div></div><p>####变量声明</p><ul><li>所有函数内的变量声明应该放在函数内头部，只使用一个 var(多了JSLint报错)， 一个变量一行， 在行末跟注释</li><li>优先使用单引号（'）而不是双引号（"）表示字符常量</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		function doSomethingWithItems(items) {
+
+		    var value = 10,    // 注释
+		        result = value + 10,    // 注释
+		        name = &#39;rose&#39;,	 // 注释
+		        i,    // 注释
+		        len;    // 注释
+
+		    for (i=0, len=items.length; i &lt; len; i++) {
+		        doSomething(items[i]);
+		    }
+		}
+</code></pre></td></tr></table></div></div><p>####函数声明</p><ul><li>函数声明 和 函数表达式 的不同，函数表达式 的（）前后必须有空格，而函数生命 在有函数名的时候不需要空格， 没有函数名的时候需要空格。</li><li>函数调用括号前后不需要空格</li><li>立即执行函数的写法, 最外层必须包一层括号</li><li>&ldquo;use strict&rdquo; 决不允许全局使用， 必须放在函数的第一行， 可以用自执行函数包含大的代码段, 如果 &ldquo;use strict&rdquo; 在函数外使用， JSLint 和 JSHint 均会报错</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		function doSomething(item) {
+	    	// do something
+		}
+
+		var doSomething = function (item) {
+		    // do something
+		}
+
+
+		// Good
+		doSomething(item);
+
+		// Bad: Looks like a block statement
+		doSomething (item);
+
+
+		// Good
+		var value = (function() {
+
+		    // function body
+		    return {
+		        message: &#34;Hi&#34;
+		    }
+		}());
+
+
+		// Good
+		(function() {
+		    &#34;use strict&#34;;
+
+		    function doSomething() {
+		        // code
+		    }
+
+		    function doSomethingElse() {
+		        // code
+		    }
+
+		})();
+</code></pre></td></tr></table></div></div><p>####undefined使用</p><ul><li>永远不要直接使用undefined进行变量判断</li><li>使用字符串 &ldquo;undefined&rdquo; 对变量进行判断</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		// Bad
+		var person;
+		console.log(person === undefined);    //true
+
+		// Good
+		console.log(typeof person);    // &#34;undefined&#34;
+</code></pre></td></tr></table></div></div><p>####Object对象</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>	// Bad
+	var team = new Team();
+	team.title = &#34;AlloyTeam&#34;;
+	team.count = 25;
+
+	// Good  semi colon 采用 Followed by space 的形式
+	var team = {
+	    title: &#34;AlloyTeam&#34;,
+	    count: 25
+	};
+</code></pre></td></tr></table></div></div><p>####Array数组</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>	// Bad
+	var colors = new Array(&#34;red&#34;, &#34;green&#34;, &#34;blue&#34;);
+	var numbers = new Array(1, 2, 3, 4);
+
+
+	// Good
+	var colors = [ &#34;red&#34;, &#34;green&#34;, &#34;blue&#34; ];
+	var numbers = [ 1, 2, 3, 4 ];
+</code></pre></td></tr></table></div></div><p>####switch</p><ul><li>花括号必须要， 即使内容只有一行;</li><li>switch和括号之间有空格， case需要缩进;</li><li>break之后跟下一个case中间留一个blank line;</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		switch (condition) {
+		    case &#34;first&#34;:
+		        // code
+		        break;
+
+		    case &#34;third&#34;:
+		        // code
+		        break;
+
+		    default:
+		    // code
+		}
+</code></pre></td></tr></table></div></div><p>####for</p><ul><li>普通for循环, 分号后留有一个空格， 判断条件等内的操作符两边不留空格</li><li>前置条件如果有多个，逗号后留一个空格</li><li>for-in 一定要有 hasOwnProperty 的判断， 否则 JSLint 或者 JSHint 都会有一个 warn</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		var values = [ 1, 2, 3, 4, 5, 6, 7 ],
+		    i, len;
+
+		for (i=0, len=values.length; i&lt;len; i++) {
+		    process(values[i]);
+		}
+
+
+
+		var prop;
+		for (prop in object) {
+
+		    // 注意这里一定要有 hasOwnProperty 的判断， 否则 JSLint 或者 JSHint 都会有一个 warn ！
+		    if (object.hasOwnProperty(prop)) {
+		        console.log(&#34;Property name is &#34; + prop);
+		        console.log(&#34;Property value is &#34; + object[prop]);
+		    }
+		}
+</code></pre></td></tr></table></div></div><h4 id=其他>其他</h4><ul><li>避免使用<code>a==b</code>, <code>a!=b</code>， 推荐用严格比较条件 <code>a===b</code>, <code>a!==b</code></li><li>非特殊业务， 禁用<code>eval</code>,<code>with</code></li></ul><p>##注释规范
+####HTML 注释</p><ul><li>代码说明的注释方法，采用标签闭合的写法，与HTML标签保持格式统一</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		&lt;!-- 头部 --&gt;
+		&lt;div class=&#34;header&#34;&gt;
+		    &lt;!-- 导航 --&gt;
+		    &lt;ul class=&#34;nav&#34;&gt;
+		        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;nav1&lt;/a&gt;&lt;/li&gt;
+		        &lt;li&gt;&lt;a href=&#34;#&#34;&gt;nav2&lt;/a&gt;&lt;/li&gt;
+		    &lt;/ul&gt;
+		    &lt;!-- /导航 --&gt;
+		&lt;/div&gt;
+		&lt;!-- /头部 --&gt;
+</code></pre></td></tr></table></div></div><ul><li>代码本身的注释方法，单行代码的注释也保持在同行，两端空格；多行代码的注释起始和结尾都另起一行并左缩进对齐</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		&lt;!-- &lt;h1 class=&#34;header&#34;&gt;&lt;a href=&#34;#&#34;&gt;LOGO&lt;/a&gt;&lt;/h1&gt; --&gt;
+		&lt;!--
+		&lt;ul class=&#34;nav&#34;&gt;
+		    &lt;li&gt;&lt;a href=&#34;#&#34;&gt;nav1&lt;/a&gt;&lt;/li&gt;
+		    &lt;li&gt;&lt;a href=&#34;#&#34;&gt;nav2&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		--&gt;
+</code></pre></td></tr></table></div></div><ul><li>注释在IE6中的BUG<ul><li>如果两个浮动元素之间存在注释，那么可能导致布局错位或文字的BUG</li><li>通常这种情况，把注释去掉是最好的解决方案</li></ul></li></ul><p>####CSS 注释</p><ul><li>单行注释，写在被注释对象的上一行，对属性及值的注释写于分号后</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		/* 单行注释文字 */
+		.ui-box {
+		    border: 1px solid #ccc;
+		}
+		.ui-box-head{
+		    height:20px;
+		    line-height:20px;/* 这里是对line-height的一个注释 */
+		    overflow:hidden;
+		}
+</code></pre></td></tr></table></div></div><ul><li>块状注释，用于布局结构或模块，注释保持统一的缩进对齐，前面留空一行</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		/*
+		 * 块状注释文字
+		 * 块状注释文字
+		 */
+		.ui-box {}
+		.ui-box-head {}
+		.ui-box-head .ui-box-head-title{}
+		.ui-box-container{}
+</code></pre></td></tr></table></div></div><p>####JavaScript 注释</p><ul><li>单行注释<ul><li>双斜线后，必须跟注释内容保留一个空格；</li><li>可独占一行, 前边不许有空行, 缩进与下一行代码保持一致；</li><li>位于一个代码行的末尾，双斜线距离分号四个空格，双斜线后始终保留一个空格</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>			// Good
+			if (condition) {
+
+			    // if you made it here, then all security checks passed
+			    allowed();
+			}
+
+			var zhangsan = &#34;zhangsan&#34;;    // 双斜线距离分号四个空格，双斜线后始终保留一个空格
+</code></pre></td></tr></table></div></div><ul><li>块状注释<ul><li>注释代码最少三行，保持统一的缩进，前面留空一行</li><li>用于难于理解或者存在错误的代码段，也适用于HACK代码和逻辑较强的代码注释</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>			/*
+			 * 注释内容与星标前保留一个空格
+			 */
+</code></pre></td></tr></table></div></div><p>####JsDoc 注释</p><ul><li>JsDoc 是一个根据注释规范自动生成文档的工具</li><li>详细的文档规范可参考 <a href=http://usejsdoc.org/>usejsdoc.org</a></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>		/**
+		 * here boy, look here , here is girl
+		 * @method lookGril
+		 * @param {Object} balabalabala
+		 * @return {Object} balabalabala
+		 */
+</code></pre></td></tr></table></div></div><p>####UPDATE</p><ul><li>2014-08-20<ul><li>细化HTML,CSS范内容目录，和JavaScript保持一致</li><li>引入代码格式化和校验工具</li></ul></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>ZHIKING</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>0001-01-01</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/frontend/>frontend</a></div><nav class=post-nav><a class=prev href=/post/2015/1/><i class="iconfont icon-left"></i><span class="prev-text nav-default">前端开发工具库</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2015/2/><span class="next-text nav-default">样式库解决方案</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=vcomments></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=//unpkg.com/valine/dist/Valine.min.js></script><script type=text/javascript>new Valine({el:'#vcomments',appId:'NMSmBidAFpBuTSH8keGTVxsp-gzGzoHsz',appKey:'hyRs458vliUABVCeqmXstLsE',notify:false,verify:false,avatar:'mm',placeholder:'看完了，你有啥想吐槽的...',visitor:false});</script><script src=https://utteranc.es/client.js repo=zyj1022/ issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:zyj10222@126.com class="iconfont icon-email" title=email></a><a href=https://github.com/zyj1022 class="iconfont icon-github" title=github></a><a href=https://weibo.com/zyj1022 class="iconfont icon-weibo" title=weibo></a><a href=/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<a href=http://www.beian.miit.gov.cn>沪ICP备17033498号</a>
+<span class=copyright-year>&copy;
+2015 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>ZHIKING</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js></script><script src=https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js></script><script src=https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js></script><script src=/js/search.js async></script><div id=ex1 class=modal><div class=aa-input-container id=aa-input-container><input type=search id=aa-search-input class=aa-input-search placeholder="Search for titles or URIs..." name=search autocomplete=off><svg class="aa-input-icon" viewBox="654 -372 1664 1664"><path d="M1806 332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2 1481.3-116 1358-116s-228.8 43.8-316.5 131.5S910 208.7 910 332s43.8 228.8 131.5 316.5S1234.7 780 1358 780s228.8-43.8 316.5-131.5S1806 455.3 1806 332zm512 832c0 34.7-12.7 64.7-38 90s-55.3 38-90 38c-36 0-66-12.7-90-38l-343-342c-119.3 82.7-252.3 124-399 124-95.3.0-186.5-18.5-273.5-55.5s-162-87-225-150-113-138-150-225S654 427.3 654 332s18.5-186.5 55.5-273.5 87-162 150-225 138-113 225-150S1262.7-372 1358-372s186.5 18.5 273.5 55.5 162 87 225 150 113 138 150 225S2062 236.7 2062 332c0 146.7-41.3 279.7-124 399l343 343C2305.7 1098.7 2318 1128.7 2318 1164z" /></svg></div></div></body></html>

@@ -1,0 +1,241 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>safari浏览器fixed后，被软键盘遮盖的问题 - 知也无涯</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="ZHIKING"><meta name=description content="safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。 问题描述 测试环境"><meta name=keywords content="Hugo,blog,智的博客"><meta name=generator content="Hugo 0.69.0 with theme even"><link rel=canonical href=/post/2017/html-safari-fixed/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="safari浏览器fixed后，被软键盘遮盖的问题"><meta property="og:description" content="safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。 问题描述 测试环境"><meta property="og:type" content="article"><meta property="og:url" content="/post/2017/html-safari-fixed/"><meta property="article:published_time" content="2017-03-31T18:12:19+00:00"><meta property="article:modified_time" content="2017-03-31T18:12:19+00:00"><meta itemprop=name content="safari浏览器fixed后，被软键盘遮盖的问题"><meta itemprop=description content="safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。 问题描述 测试环境"><meta itemprop=datePublished content="2017-03-31T18:12:19+00:00"><meta itemprop=dateModified content="2017-03-31T18:12:19+00:00"><meta itemprop=wordCount content="1016"><meta itemprop=keywords content="safari,html,css,fixed,"><meta name=twitter:card content="summary"><meta name=twitter:title content="safari浏览器fixed后，被软键盘遮盖的问题"><meta name=twitter:description content="safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。 问题描述 测试环境"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script data-ad-client=ca-pub-3216129127646136 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/js/baidutongji.js async></script><script src=/js/baidutuisong.js async></script><link rel=stylesheet href=/css/search.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>知也无涯</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>知也无涯</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><a href=#ex1 rel=modal:open><i class="fas fa-search fa-fw"></i></a></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>safari浏览器fixed后，被软键盘遮盖的问题</h1><div class=post-meta><span class=post-time>2017-03-31</span><div class=post-category><a href=/categories/frontend/>frontend</a></div><span class=more-meta>约 1016 字</span>
+<span class=more-meta>预计阅读 3 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#问题描述>问题描述</a></li><li><a href=#测试代码如下>测试代码如下</a></li><li><a href=#尝试过的解决方案>尝试过的解决方案</a></li></ul></nav></div></div><div class=post-content><p>safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。</p><h2 id=问题描述>问题描述</h2><p><strong>测试环境：ios 10.2/10.3</strong></p><p>简单来说就是在html5页面中底部有个fixed的区域，如图</p><p><img src=http://og8z552x2.bkt.clouddn.com/safari-fix1.png alt=safari-fix></p><p>在点击输入框的时候，软键盘弹出，遮盖了fixed区域，如图</p><p><img src=http://og8z552x2.bkt.clouddn.com/safari-fix2.png alt=safari-fix></p><p>但是当你点击“完成”让软键盘收起，再次点击输入框的时候，what？一切正常了～！如图（就是要这样子的嘛，之后收起弹出软键盘都正常了，不会遮盖fixed底部区域了！）</p><p><img src=http://og8z552x2.bkt.clouddn.com/safari-fix3.png alt=safari-fix></p><p>但是，但是，还没完，在输入框里随便输入点内容，点击“提交”，关闭软键盘，之后再次点击输入框，问题依旧～，软键盘再次遮挡fixed区域。</p><p><img src=http://og8z552x2.bkt.clouddn.com/safari-fix4.png alt=safari-fix></p><p>如上循环，问题无法解决。</p><h2 id=测试代码如下>测试代码如下</h2><p>代码很简单，但还是贴一下，方便测试，只需要复制粘贴到本机即可测试上述现象</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
+    &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
+    &lt;title&gt;fixed测试页面&lt;/title&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;initial-scale=1, maximum-scale=1&#34;&gt;
+    &lt;meta name=&#34;apple-mobile-web-app-capable&#34; content=&#34;yes&#34;&gt;
+    &lt;meta name=&#34;apple-mobile-web-app-status-bar-style&#34; content=&#34;black&#34;&gt;
+
+	&lt;style&gt;
+		.head {
+			top: 0;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			position: fixed;
+			left: 0;
+			width: 100%;
+			z-index: 10;
+			background-color: #99CC00;
+		}
+
+		.foot {
+			bottom: 0;
+			padding: 10px;
+			position: fixed;
+			left: 0;
+			width: 100%;
+			background-color: #99CC00;
+		}
+
+		.main {
+			width: 100%;
+			height: 100%;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.list {
+			padding: 0;
+		}
+
+		.list li {
+			list-style: none;
+			background: #ccc;
+			height: 140px;
+			margin-bottom: 10px;
+			width: 100%;
+			padding:10px;
+		}
+		.list a {
+			border:2px solid #999;
+			display: block;
+			width:88%;
+			position: absolute;
+			height:140px;
+		}
+		.input {
+			width: 76%;
+			line-height: 30px;
+			border: none;
+			float: left;
+			border-radius:5px;
+		}
+		.btn {
+			float:right;
+			margin-right:15px;
+			border-radius:5px;
+			height:34px;
+			line-height: 32px;
+			padding: 0 10px;
+			border: none;
+			background: #000;
+			color: #fff;
+		}
+	&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+	&lt;header class=&#34;head&#34;&gt;顶部固定区域&lt;/header&gt;
+
+	&lt;main class=&#34;main&#34;&gt;
+		&lt;div class=&#34;content&#34;&gt;
+			&lt;ul class=&#34;list&#34;&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&#34;#&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/main&gt;
+
+	&lt;footer class=&#34;foot&#34; id=&#34;footer-fixed&#34;&gt;
+		&lt;button type=&#34;button&#34; id=&#34;btn-submit&#34; class=&#34;btn&#34; name=&#34;button&#34;&gt;提交&lt;/button&gt;
+		&lt;input type=&#34;text&#34; id=&#34;input-txt&#34; class=&#34;input&#34; name=&#34;&#34; value=&#34;&#34; placeholder=&#34;我来说两句...(200字内)&#34;&gt;
+	&lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</code></pre></td></tr></table></div></div><h2 id=尝试过的解决方案>尝试过的解决方案</h2><p>搜索后有很多解决方法，但发现他们都没解决上述问题，</p><p><strong>暂时的想法，绕过fixed点击输入框后，隐藏此区域，在顶部出现更大的输入区域以让用户输入内容。</strong></p><ul><li><a href=https://segmentfault.com/a/1190000005370182#articleHeader2>IOS中弹出键盘后出现fixed失效现象的解决方案</a></li><li><a href=http://blog.csdn.net/kongjiea/article/details/46545351>移动端解决fixed和input获取焦点软键盘弹出影响定位的问题</a></li><li><a href=http://www.cnblogs.com/yexiaochai/p/3561939.html>虚拟键盘与fixed带给移动端的痛</a></li><li><a href=http://www.cnblogs.com/PeunZhang/archive/2013/06/14/3117589.html>使用iScroll.js解决ios4下不支持position:fixed的问题</a></li></ul><p>好，至此，问题描述完毕，期待有牛人更好解决方案</p><hr><blockquote><p>segmentfault 专栏提出了问题</p><p><a href="https://segmentfault.com/a/1190000008906437?_ea=1772278">https://segmentfault.com/a/1190000008906437?_ea=1772278</a></p></blockquote></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>ZHIKING</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2017-03-31</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/safari/>safari</a>
+<a href=/tags/html/>html</a>
+<a href=/tags/css/>css</a>
+<a href=/tags/fixed/>fixed</a></div><nav class=post-nav><a class=prev href=/post/2017/js-dp-strategy/><i class="iconfont icon-left"></i><span class="prev-text nav-default">设计模式之策略模式(Strategy)</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2017/js-dp-iterator/><span class="next-text nav-default">设计模式之迭代器模式(Iterator)</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=vcomments></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=//unpkg.com/valine/dist/Valine.min.js></script><script type=text/javascript>new Valine({el:'#vcomments',appId:'NMSmBidAFpBuTSH8keGTVxsp-gzGzoHsz',appKey:'hyRs458vliUABVCeqmXstLsE',notify:false,verify:false,avatar:'mm',placeholder:'看完了，你有啥想吐槽的...',visitor:false});</script><script src=https://utteranc.es/client.js repo=zyj1022/ issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:zyj10222@126.com class="iconfont icon-email" title=email></a><a href=https://github.com/zyj1022 class="iconfont icon-github" title=github></a><a href=https://weibo.com/zyj1022 class="iconfont icon-weibo" title=weibo></a><a href=/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<a href=http://www.beian.miit.gov.cn>沪ICP备17033498号</a>
+<span class=copyright-year>&copy;
+2015 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>ZHIKING</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js></script><script src=https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js></script><script src=https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js></script><script src=/js/search.js async></script><div id=ex1 class=modal><div class=aa-input-container id=aa-input-container><input type=search id=aa-search-input class=aa-input-search placeholder="Search for titles or URIs..." name=search autocomplete=off><svg class="aa-input-icon" viewBox="654 -372 1664 1664"><path d="M1806 332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2 1481.3-116 1358-116s-228.8 43.8-316.5 131.5S910 208.7 910 332s43.8 228.8 131.5 316.5S1234.7 780 1358 780s228.8-43.8 316.5-131.5S1806 455.3 1806 332zm512 832c0 34.7-12.7 64.7-38 90s-55.3 38-90 38c-36 0-66-12.7-90-38l-343-342c-119.3 82.7-252.3 124-399 124-95.3.0-186.5-18.5-273.5-55.5s-162-87-225-150-113-138-150-225S654 427.3 654 332s18.5-186.5 55.5-273.5 87-162 150-225 138-113 225-150S1262.7-372 1358-372s186.5 18.5 273.5 55.5 162 87 225 150 113 138 150 225S2062 236.7 2062 332c0 146.7-41.3 279.7-124 399l343 343C2305.7 1098.7 2318 1128.7 2318 1164z" /></svg></div></div></body></html>
