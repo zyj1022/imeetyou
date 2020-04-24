@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>call on 知也无涯</title>
+    <link>/tags/call/</link>
+    <description>Recent content in call on 知也无涯</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>ZHIKING</copyright>
+    <lastBuildDate>Tue, 11 Apr 2017 12:26:09 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/call/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>call()、apply()、bind()的用法</title>
+      <link>/post/2017/js-call-apply-bind/</link>
+      <pubDate>Tue, 11 Apr 2017 12:26:09 +0000</pubDate>
+      
+      <guid>/post/2017/js-call-apply-bind/</guid>
+      <description>在javascript中，函数不仅是一种语法，也是值，也就是说，可以将函数赋值给变量，存储在对象的属性或数组的元素中， 作为参数传入另外一个函</description>
+    </item>
+    
+  </channel>
+</rss>

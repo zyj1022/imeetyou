@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>原生JS 获取浏览器、窗口、元素等尺寸的方法及注意事项 - 知也无涯</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ZHIKING" /><meta name="description" content="一、通过浏览器获得屏幕的尺寸 屏幕分辨率的高：window.screen.height 屏幕分辨率的宽：window.screen.width 屏" /><meta name="keywords" content="Hugo, blog, 智的博客" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="/post/2018/js-window-height-width/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="原生JS 获取浏览器、窗口、元素等尺寸的方法及注意事项" />
+<meta property="og:description" content="一、通过浏览器获得屏幕的尺寸 屏幕分辨率的高：window.screen.height 屏幕分辨率的宽：window.screen.width 屏" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2018/js-window-height-width/" />
+<meta property="article:published_time" content="2018-03-07T09:19:11+08:00" />
+<meta property="article:modified_time" content="2018-03-07T09:19:11+08:00" />
+<meta itemprop="name" content="原生JS 获取浏览器、窗口、元素等尺寸的方法及注意事项">
+<meta itemprop="description" content="一、通过浏览器获得屏幕的尺寸 屏幕分辨率的高：window.screen.height 屏幕分辨率的宽：window.screen.width 屏">
+<meta itemprop="datePublished" content="2018-03-07T09:19:11&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-07T09:19:11&#43;08:00" />
+<meta itemprop="wordCount" content="1151">
+
+
+
+<meta itemprop="keywords" content="frontend," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="原生JS 获取浏览器、窗口、元素等尺寸的方法及注意事项"/>
+<meta name="twitter:description" content="一、通过浏览器获得屏幕的尺寸 屏幕分辨率的高：window.screen.height 屏幕分辨率的宽：window.screen.width 屏"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script data-ad-client="ca-pub-3216129127646136" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script src="/js/baidutongji.js" async="true"></script>
+
+<script src="/js/baidutuisong.js" async="true"></script>
+
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">知也无涯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">知也无涯</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+	
+    <a href="#ex1" rel="modal:open"><i class="fas fa-search fa-fw"></i></a>
+    
+  </ul>
+
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">原生JS 获取浏览器、窗口、元素等尺寸的方法及注意事项</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-07 </span>
+        <div class="post-category">
+            <a href="/categories/frontend/"> frontend </a>
+            </div>
+          <span class="more-meta"> 约 1151 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一通过浏览器获得屏幕的尺寸">一、通过浏览器获得屏幕的尺寸</a></li>
+    <li><a href="#二获取浏览器窗口内容的尺寸">二、获取浏览器窗口内容的尺寸</a></li>
+    <li><a href="#三滚动条支持的差异性">三、滚动条支持的差异性</a></li>
+    <li><a href="#四元素的偏移属性">四、元素的偏移属性</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="一通过浏览器获得屏幕的尺寸">一、通过浏览器获得屏幕的尺寸</h2>
+<p>屏幕分辨率的高：window.screen.height
+屏幕分辨率的宽：window.screen.width
+屏幕可用工作区高度：window.screen.availHeight
+屏幕可用工作区宽度：window.screen.availWidths</p>
+<h2 id="二获取浏览器窗口内容的尺寸">二、获取浏览器窗口内容的尺寸</h2>
+<p>网页可见区域宽：document.body.clientWidth
+网页可见区域高：document.body.clientHeight
+网页可见区域宽：document.body.offsetWidth (包括边线的宽)
+网页可见区域高：document.body.offsetHeight (包括边线的宽)
+网页正文全文宽：document.body.scrollWidth
+网页正文全文高：document.body.scrollHeight
+网页被卷去的高：document.body.scrollTop
+网页被卷去的左：document.body.scrollLeft
+网页正文部分上：window.screenTop
+网页正文部分左：window.screenLeft</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//高度
+window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+//宽度
+window.innerWidth || document.documentElement.clientWidth || document.body.clientWidht
+/ *
+  * window.innerHeight   FF/CH 支持，获取窗口尺寸。
+  * document.documentElement.clientHeight    IE/CH支持
+  * document.body.client    通过body元素获取内容的尺寸
+* /
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="三滚动条支持的差异性">三、滚动条支持的差异性</h2>
+<p>不进行任何滚动条更改的页面，Firefox/IE 默认认为HTML元素具有滚动条属性。而body不具有。
+但Chrome 则认为body是具有滚动条属性的。
+因此兼容性的写法是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">document.documentElement.scrollTop || document.body.scrollTop
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="四元素的偏移属性">四、元素的偏移属性</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">element.offsetTop  //获取元素与其偏移参考父元素顶部的间隔距离
+element.offsetLeft  //获取元素与其偏移参考父元素左边的间隔距离
+element.offsetParent  //获取当前元素的参考父元素
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>offsetTop 可以获取元素距其上一级的偏移参考父元素顶部的距离。包括：margin[top] + top</li>
+<li>offsetLeft 可以获取元素距其上一级的偏移参考父元素左边的距离。包括：margin[left] + left</li>
+</ul>
+<p><em><strong>注意的是offsetParent在IE6/7，与IE8/FF/CH中存在兼容性问题：</strong></em>
+<em><strong>在FF/Chrome/IE8+ ：</strong></em></p>
+<ul>
+<li>如果当前元素有定位，则偏移参考父元素是其上一级的最近的那个定位元素。</li>
+<li>如果当前元素没有定位，则默认以body为最终的参考父元素。</li>
+</ul>
+<p><em><strong>在IE6/7：</strong></em></p>
+<ul>
+<li>不论有没有定位，其偏移参考父元素都是其上一级的父元素。</li>
+</ul>
+<p><em><strong>总的来说：</strong></em></p>
+<ul>
+<li>不论是FF/Chrome还是IE，最终的参考父元素都是body元素， 因此兼容的方法就是获取当前元素到body元素的偏移位置值。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 兼容性写法
+function getOffestValue(elem){
+    var Far = null;
+    var topValue = elem.offsetTop;
+    var leftValue = elem.offsetLeft;
+    var offsetFar = elem.offsetParent;
+
+    while(offsetFar){
+        alert(offsetFar.tagName)
+        topValue += offsetFar.offsetTop;
+        leftValue += offsetFar.offsetLeft;
+        Far = offsetFar;
+        offsetFar = offsetFar.offsetParent;
+    }
+    return {&#39;top&#39;:topValue,&#39;left&#39;:leftValue,&#39;Far&#39;:Far}
+}
+/*
+* top 当前元素距离body元素顶部的距离。
+* left 当前元素距离body元素左侧的距离。
+* Far  返回最终的参考父元素。
+*/
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">ZHIKING</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-03-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/frontend/">frontend</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2018/useful-es6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">学会这些有用的ES6</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2018/js-iframe-height/">
+            <span class="next-text nav-default">Js动态获取iframe子页面的高度总结</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'NMSmBidAFpBuTSH8keGTVxsp-gzGzoHsz',
+        appKey: 'hyRs458vliUABVCeqmXstLsE',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '看完了，你有啥想吐槽的...',
+        visitor:  false 
+    });
+  </script>
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="zyj1022/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zyj10222@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/zyj1022" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/zyj1022" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+  <a href="http://www.beian.miit.gov.cn">沪ICP备17033498号</a>
+
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">ZHIKING</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+
+<script src="/js/search.js" async="true"></script>
+  
+  
+  <div id="ex1" class="modal">
+    <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
+</div>
+  </div>
+
+</body>
+</html>

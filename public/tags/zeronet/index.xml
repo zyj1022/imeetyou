@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ZeroNet on 知也无涯</title>
+    <link>/tags/zeronet/</link>
+    <description>Recent content in ZeroNet on 知也无涯</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>ZHIKING</copyright>
+    <lastBuildDate>Wed, 01 Apr 2020 13:37:56 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/zeronet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ZeroNet 使用指南</title>
+      <link>/post/2020/2020-04-01-zeronet/</link>
+      <pubDate>Wed, 01 Apr 2020 13:37:56 +0800</pubDate>
+      
+      <guid>/post/2020/2020-04-01-zeronet/</guid>
+      <description>ZeroNet 使用指南 网络的大海里又发现一片新大陆，顺便记录一下。 什么是零网 ZeroNet ZeroNet 是一个以对等网络用户为基础构成的类互联网的分布式网络。ZeroNet的总</description>
+    </item>
+    
+  </channel>
+</rss>

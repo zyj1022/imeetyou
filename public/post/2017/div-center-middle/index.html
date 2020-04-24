@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>div嵌套水平垂直居中方法 - 知也无涯</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ZHIKING" /><meta name="description" content="总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。 首先给需要实现水平垂直居中的两个di" /><meta name="keywords" content="Hugo, blog, 智的博客" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="/post/2017/div-center-middle/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="div嵌套水平垂直居中方法" />
+<meta property="og:description" content="总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。 首先给需要实现水平垂直居中的两个di" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2017/div-center-middle/" />
+<meta property="article:published_time" content="2017-03-12T17:24:54+00:00" />
+<meta property="article:modified_time" content="2017-03-12T17:24:54+00:00" />
+<meta itemprop="name" content="div嵌套水平垂直居中方法">
+<meta itemprop="description" content="总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。 首先给需要实现水平垂直居中的两个di">
+<meta itemprop="datePublished" content="2017-03-12T17:24:54&#43;00:00" />
+<meta itemprop="dateModified" content="2017-03-12T17:24:54&#43;00:00" />
+<meta itemprop="wordCount" content="1352">
+
+
+
+<meta itemprop="keywords" content="html,frontend," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="div嵌套水平垂直居中方法"/>
+<meta name="twitter:description" content="总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。 首先给需要实现水平垂直居中的两个di"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script data-ad-client="ca-pub-3216129127646136" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script src="/js/baidutongji.js" async="true"></script>
+
+<script src="/js/baidutuisong.js" async="true"></script>
+
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">知也无涯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">知也无涯</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+	
+    <a href="#ex1" rel="modal:open"><i class="fas fa-search fa-fw"></i></a>
+    
+  </ul>
+
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">div嵌套水平垂直居中方法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-12 </span>
+        <div class="post-category">
+            <a href="/categories/frontend/"> frontend </a>
+            </div>
+          <span class="more-meta"> 约 1352 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#方法一父标签-table-cell-法">方法一：父标签 table-cell 法</a></li>
+    <li><a href="#方法二常规-position-及子元素偏移方法">方法二：常规 position 及子元素偏移方法</a></li>
+    <li><a href="#方法三css3新属性-transform-的-translate-方法">方法三：CSS3新属性 transform 的 translate 方法</a></li>
+    <li><a href="#方法四marginauto-方法">方法四：margin:auto 方法</a></li>
+    <li><a href="#方法五flex-布局方法">方法五：flex 布局方法</a></li>
+    <li><a href="#方法六伪元素-inline-blockvertical-align-方法">方法六：伪元素 inline-block/vertical-align 方法</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。
+首先给需要实现水平垂直居中的两个div设置统一的样式，<a href="/demos/div-center-middle.html"><strong>查看demo</strong></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.styl {
+	width: 100%;
+	height: 300px;
+	background: #ccc;
+	margin: 30px auto;
+	position: relative;
+	border: 1px solid #000;
+}
+.box {
+	width: 200px;
+	height: 100px;
+	background: #333;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="方法一父标签-table-cell-法">方法一：父标签 table-cell 法</h2>
+<p>看题目就知道是利用父标签的 <code>display: table-cell</code>,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。
+那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性<code>vertical-align: middle;</code> 来使得内部元素垂直居中了，然后再给子标签 <code>margin:0 auto;</code> 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/*css*/
+.styl1 {
+	width: 1000px;
+	display: table-cell;
+	vertical-align: middle;
+}
+.styl1 .box {
+	margin: 0 auto;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>html代码只要用我们上面的样式即可，之后的class名只要修改 <code>styl1</code> 为对应的样式名即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/* html */
+&lt;div class=&#34;styl styl1&#34;&gt;
+	&lt;div class=&#34;box&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="方法二常规-position-及子元素偏移方法">方法二：常规 position 及子元素偏移方法</h2>
+<p>父标签设置 <code>position:relative</code>,子标签设置 <code>position:absolute</code>,同时设置 <code>left:50%</code>,<code>top:50%</code>,这个时候子标签的左上角已经垂直水平居中，再设置<code>margin</code>的负值为子元素宽高的50%即可将中心点对齐。
+此方法缺点，需要动态调整 margin 偏移量为子标签宽高度的一半这个值，无法自动匹配。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.styl2 .box {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -50px 0 0 -100px;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="方法三css3新属性-transform-的-translate-方法">方法三：CSS3新属性 transform 的 translate 方法</h2>
+<p>首先 <code>transform</code> 是css3的新属性，该属性是让我们对元素进行旋转、缩放、<strong>移动</strong>或倾斜。那么再看属性值 <code>translate</code> 是定义2D转换，就是平面的x,y喽。知道这些，那么我们在 方法二的基础上将偏移量通过 <code>transform</code> 来设置即可。
+此属性支持IE9以上属性，而且需要兼容不同浏览器写法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.styl3 .box {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%)
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="方法四marginauto-方法">方法四：margin:auto 方法</h2>
+<p>此方法依然是在方法二的基础上修改，将子元素的left、top、right、bottom都设置为0，然后再 <code>margin:auto</code>,即可实现子元素的水平垂直居中。
+此方法好处是自适应父标签的宽高，也就是说，无论父标签宽高怎么变都水平垂直居中哦。
+此方法支持IE8+以及其他浏览器。是不是很神奇，具体原因查看 <strong><a href="http://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">margin:auto实现绝对定位元素的水平垂直居中</a></strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.styl4 .box {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="方法五flex-布局方法">方法五：flex 布局方法</h2>
+<p>flex意为弹性布局，不同于盒模型布局，子元素实现垂直居中就比较容易了，具体教程可以参看 <strong><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool">阮一峰的flex布局教程</a></strong>，这里只说怎么实现。
+在此我们只要将父标签设置为 <code>display: flex</code>,并进行相应的主轴 <code>justify-content: center</code> 和交叉轴上的 <code>align-items: center</code> 对齐方式就可以了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.styl5 {
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>html结构同上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;div class=&#34;styl styl5&#34;&gt;
+	&lt;div class=&#34;box&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="方法六伪元素-inline-blockvertical-align-方法">方法六：伪元素 inline-block/vertical-align 方法</h2>
+<p>这个方法主要利用父标签的 <code>::before</code> 伪元素的 <code>inline-block</code> <code>vertical-align</code>来实现，比较巧妙，但这个方法要求子元素的属性必须是 <code>display: inline-block</code>, 好处依然是父子元素都可以自适应宽高并保持水平垂直居中。css如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.styl6 {
+	text-align: center;
+}
+.styl6:before {
+	content: &#39;&#39;;
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.styl6 .box {
+	display: inline-block;
+	vertical-align: middle;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>好，至此总结了div内部元素水平垂直居中的方法。</p>
+<hr>
+<blockquote>
+<p>本文主要内容引用：</p>
+<ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">margin:auto 实现绝对定位元素的水平垂直居中</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool">阮一峰的flex布局教程</a></li>
+</ul>
+</blockquote>
+<p>原文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/div-center-middle.html">http://zyj1022.github.io/posts/frontend/2017/div-center-middle.html</a></p>
+<p>转载时必须以链接形式注明原始出处及本声明</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">ZHIKING</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/html/">html</a>
+          <a href="/tags/frontend/">frontend</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2017/2017-03-13/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">归零重来</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2017/div-the-holy-grail/">
+            <span class="next-text nav-default">圣杯布局和双飞翼布局详解</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'NMSmBidAFpBuTSH8keGTVxsp-gzGzoHsz',
+        appKey: 'hyRs458vliUABVCeqmXstLsE',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '看完了，你有啥想吐槽的...',
+        visitor:  false 
+    });
+  </script>
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="zyj1022/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zyj10222@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/zyj1022" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/zyj1022" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+  <a href="http://www.beian.miit.gov.cn">沪ICP备17033498号</a>
+
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">ZHIKING</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+
+<script src="/js/search.js" async="true"></script>
+  
+  
+  <div id="ex1" class="modal">
+    <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
+</div>
+  </div>
+
+</body>
+</html>
