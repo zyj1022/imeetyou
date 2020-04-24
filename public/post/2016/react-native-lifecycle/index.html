@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>React Native 中组件的生命周期 - 知也无涯</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ZHIKING" /><meta name="description" content="概述 就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最" /><meta name="keywords" content="Hugo, blog, 智的博客" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="/post/2016/react-native-lifecycle/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="React Native 中组件的生命周期" />
+<meta property="og:description" content="概述 就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2016/react-native-lifecycle/" />
+<meta property="article:published_time" content="2016-11-08T12:23:46+00:00" />
+<meta property="article:modified_time" content="2016-11-08T12:23:46+00:00" />
+<meta itemprop="name" content="React Native 中组件的生命周期">
+<meta itemprop="description" content="概述 就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最">
+<meta itemprop="datePublished" content="2016-11-08T12:23:46&#43;00:00" />
+<meta itemprop="dateModified" content="2016-11-08T12:23:46&#43;00:00" />
+<meta itemprop="wordCount" content="1671">
+
+
+
+<meta itemprop="keywords" content="mac,frontend," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React Native 中组件的生命周期"/>
+<meta name="twitter:description" content="概述 就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script data-ad-client="ca-pub-3216129127646136" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script src="/js/baidutongji.js" async="true"></script>
+
+<script src="/js/baidutuisong.js" async="true"></script>
+
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">知也无涯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">知也无涯</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+	
+    <a href="#ex1" rel="modal:open"><i class="fas fa-search fa-fw"></i></a>
+    
+  </ul>
+
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">React Native 中组件的生命周期</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-11-08 </span>
+        <div class="post-category">
+            <a href="/categories/frontend/"> frontend </a>
+            </div>
+          <span class="more-meta"> 约 1671 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#getdefaultprops">getDefaultProps</a></li>
+    <li><a href="#componentwillmount">componentWillMount</a></li>
+    <li><a href="#componentdidmount">componentDidMount</a></li>
+    <li><a href="#componentwillreceiveprops">componentWillReceiveProps</a></li>
+    <li><a href="#shouldcomponentupdate">shouldComponentUpdate</a></li>
+    <li><a href="#componentwillupdate">componentWillUpdate</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="概述">概述</h1>
+<p>就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg" alt="Lifecycle"></p>
+<p>如图，可以把组件生命周期大致分为三个阶段：</p>
+<ul>
+<li>第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；</li>
+<li>第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；</li>
+<li>第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。</li>
+</ul>
+<!-- raw HTML omitted -->
+<h1 id="生命周期回调函数">生命周期回调函数</h1>
+<p>下面来详细介绍生命周期中的各回调函数。</p>
+<h2 id="getdefaultprops">getDefaultProps</h2>
+<p>在组件创建之前，会先调用 <code>getDefaultProps()</code>，这是全局调用一次，严格地来说，这不是组件的生命周期的一部分。在组件被创建并加载候，首先调用 <code>getInitialState()</code>，来初始化组件的状态。</p>
+<h2 id="componentwillmount">componentWillMount</h2>
+<p>然后，准备加载组件，会调用 componentWillMount()，其原型如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">void componentWillMount()
+</code></pre></td></tr></table>
+</div>
+</div><p>这个函数调用时机是在组件创建，并初始化了状态之后，在第一次绘制 render() 之前。可以在这里做一些业务初始化操作，也可以设置组件状态。这个函数在整个生命周期中只被调用一次。</p>
+<h2 id="componentdidmount">componentDidMount</h2>
+<p>在组件第一次绘制之后，会调用 <code>componentDidMount()</code>，通知组件已经加载完成。函数原型如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">void componentDidMount()
+</code></pre></td></tr></table>
+</div>
+</div><p>这个函数调用的时候，其虚拟 DOM 已经构建完成，你可以在这个函数开始获取其中的元素或者子组件了。需要注意的是，RN 框架是先调用子组件的 <code>componentDidMount()</code>，然后调用父组件的函数。从这个函数开始，就可以和 JS 其他框架交互了，例如设置计时 <code>setTimeout</code> 或者 <code>setInterval</code>，或者发起网络请求。这个函数也是只被调用一次。这个函数之后，就进入了稳定运行状态，等待事件触发。</p>
+<h2 id="componentwillreceiveprops">componentWillReceiveProps</h2>
+<p>如果组件收到新的属性（props），就会调用 <code>componentWillReceiveProps()</code>，其原型如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">void componentWillReceiveProps(
+  object nextProps
+)
+</code></pre></td></tr></table>
+</div>
+</div><p>输入参数 <code>nextProps</code> 是即将被设置的属性，旧的属性还是可以通过 <code>this.props</code> 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 <code>this.setState()</code> 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 <code>render()</code> 调用。如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">componentWillReceiveProps: function(nextProps) {
+  this.setState({
+    likesIncreasing: nextProps.likeCount &gt; this.props.likeCount
+  });
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="shouldcomponentupdate">shouldComponentUpdate</h2>
+<p>当组件接收到新的属性和状态改变的话，都会触发调用 <code>shouldComponentUpdate(...)</code>，函数原型如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">boolean shouldComponentUpdate(
+  object nextProps, object nextState
+)
+</code></pre></td></tr></table>
+</div>
+</div><p>输入参数 nextProps 和上面的 <code>componentWillReceiveProps</code> 函数一样，nextState 表示组件即将更新的状态值。这个函数的返回值决定是否需要更新组件，如果 true 表示需要更新，继续走后面的更新流程。否者，则不更新，直接进入等待状态。</p>
+<p>默认情况下，这个函数永远返回 true 用来保证数据变化的时候 UI 能够同步更新。在大型项目中，你可以自己重载这个函数，通过检查变化前后属性和状态，来决定 UI 是否需要更新，能有效提高应用性能。</p>
+<h2 id="componentwillupdate">componentWillUpdate</h2>
+<p>如果组件状态或者属性改变，并且上面的 <code>shouldComponentUpdate(...)</code> 返回为 true，就会开始准更新组件，并调用 <code>componentWillUpdate()</code>，其函数原型如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">void componentWillUpdate(
+  object nextProps, object nextState
+)
+</code></pre></td></tr></table>
+</div>
+</div><p>输入参数与 <code>shouldComponentUpdate</code> 一样，在这个回调中，可以做一些在更新界面之前要做的事情。需要特别注意的是，在这个函数里面，你就不能使用 this.setState 来修改状态。这个函数调用之后，就会把 <code>nextProps</code> 和 <code>nextState</code> 分别设置到 <code>this.props</code> 和 <code>this.state</code> 中。紧接着这个函数，就会调用 <code>render()</code> 来更新界面了。</p>
+<p>##componentDidUpdate</p>
+<p>调用了 <code>render()</code> 更新完成界面之后，会调用 <code>componentDidUpdate()</code> 来得到通知，其函数原型如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">void componentDidUpdate(
+  object prevProps, object prevState
+)
+</code></pre></td></tr></table>
+</div>
+</div><p>因为到这里已经完成了属性和状态的更新了，此函数的输入参数变成了 <code>prevProps</code> 和 <code>prevState</code>。</p>
+<p>##componentWillUnmount</p>
+<p>当组件要被从界面上移除的时候，就会调用 <code>componentWillUnmount()</code>，其函数原型如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">void componentWillUnmount()
+</code></pre></td></tr></table>
+</div>
+</div><p>在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等。</p>
+<h1 id="总结">总结</h1>
+<p>到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：</p>
+<table>
+<thead>
+<tr>
+<th>生命周期</th>
+<th align="center">调用次数</th>
+<th align="right">能否setSate()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDefaultProps</td>
+<td align="center">1(全局调用一次)</td>
+<td align="right">否</td>
+</tr>
+<tr>
+<td>getInitialState</td>
+<td align="center">1</td>
+<td align="right">否</td>
+</tr>
+<tr>
+<td>componentWillMount</td>
+<td align="center">1</td>
+<td align="right">是</td>
+</tr>
+<tr>
+<td>render</td>
+<td align="center">&gt;=1</td>
+<td align="right">否</td>
+</tr>
+<tr>
+<td>componentDidMount</td>
+<td align="center">1</td>
+<td align="right">是</td>
+</tr>
+<tr>
+<td>componentWillReceiveProps</td>
+<td align="center">&gt;=0</td>
+<td align="right">是</td>
+</tr>
+<tr>
+<td>shouldComponentUpdate</td>
+<td align="center">&gt;=0</td>
+<td align="right">否</td>
+</tr>
+<tr>
+<td>componentWillUpdate</td>
+<td align="center">&gt;=0</td>
+<td align="right">否</td>
+</tr>
+<tr>
+<td>componentDidUpdate</td>
+<td align="center">&gt;=0</td>
+<td align="right">否</td>
+</tr>
+<tr>
+<td>componentWillUnmount</td>
+<td align="center">1</td>
+<td align="right">否</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">ZHIKING</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-11-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/mac/">mac</a>
+          <a href="/tags/frontend/">frontend</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016/macos-usb-install-drive/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2016/mac-u-format/">
+            <span class="next-text nav-default">mac格式化U盘方法（解决win下只有200MB的问题）</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'NMSmBidAFpBuTSH8keGTVxsp-gzGzoHsz',
+        appKey: 'hyRs458vliUABVCeqmXstLsE',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '看完了，你有啥想吐槽的...',
+        visitor:  false 
+    });
+  </script>
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="zyj1022/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zyj10222@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/zyj1022" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/zyj1022" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+  <a href="http://www.beian.miit.gov.cn">沪ICP备17033498号</a>
+
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">ZHIKING</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+
+<script src="/js/search.js" async="true"></script>
+  
+  
+  <div id="ex1" class="modal">
+    <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
+</div>
+  </div>
+
+</body>
+</html>

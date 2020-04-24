@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>设计模式之模板模式(TemplateMethod) - 知也无涯</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ZHIKING" /><meta name="description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承" /><meta name="keywords" content="Hugo, blog, 智的博客" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="/post/2017/js-dp-template/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="设计模式之模板模式(TemplateMethod)" />
+<meta property="og:description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2017/js-dp-template/" />
+<meta property="article:published_time" content="2017-04-06T17:54:16+08:00" />
+<meta property="article:modified_time" content="2017-04-06T17:54:16+08:00" />
+<meta itemprop="name" content="设计模式之模板模式(TemplateMethod)">
+<meta itemprop="description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承">
+<meta itemprop="datePublished" content="2017-04-06T17:54:16&#43;08:00" />
+<meta itemprop="dateModified" content="2017-04-06T17:54:16&#43;08:00" />
+<meta itemprop="wordCount" content="1599">
+
+
+
+<meta itemprop="keywords" content="设计模式,js," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设计模式之模板模式(TemplateMethod)"/>
+<meta name="twitter:description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script data-ad-client="ca-pub-3216129127646136" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script src="/js/baidutongji.js" async="true"></script>
+
+<script src="/js/baidutuisong.js" async="true"></script>
+
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">知也无涯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">知也无涯</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+	
+    <a href="#ex1" rel="modal:open"><i class="fas fa-search fa-fw"></i></a>
+    
+  </ul>
+
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">设计模式之模板模式(TemplateMethod)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-04-06 </span>
+        <div class="post-category">
+            <a href="/categories/frontend/"> frontend </a>
+            </div>
+          <span class="more-meta"> 约 1599 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#定义">定义</a></li>
+    <li><a href="#使用实例">使用实例</a>
+      <ul>
+        <li><a href="#coffee-or-tea">Coffee or Tea</a></li>
+      </ul>
+    </li>
+    <li><a href="#好莱坞原则">好莱坞原则</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。</p>
+<h2 id="定义">定义</h2>
+<p>模板方法模式是一种只需使用继承就可以实现的非常简单的模式。</p>
+<p><strong>模板方法模式由两部分结构组成：</strong></p>
+<ul>
+<li>第一部分是抽象父类，</li>
+<li>第二部分是具体的实现子类。</li>
+</ul>
+<p>通常在抽象父类中封装了子类的算法框架，包括实现一些公共方法以及封装子类中所有方法的执行顺序。子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法。</p>
+<!-- raw HTML omitted -->
+<h2 id="使用实例">使用实例</h2>
+<h3 id="coffee-or-tea">Coffee or Tea</h3>
+<p>咖啡与茶是一个经典的例子，经常用来讲解模板方法模式</p>
+<p>泡茶和泡咖啡有同样的步骤，比如烧开水（boilWater）、冲泡（brew）、倒在杯子里（pourInCup），加小料（addCondiments）等等。</p>
+<p>但每种饮料冲泡的方法以及所加的小料不一样，所以我们可以利用模板方法实现这个主要步骤</p>
+<p>首先先来定义抽象步骤：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var Beverage = function(){};
+Beverage.prototype.boilWater = function(){
+	 console.log( &#39;把水煮沸&#39; );
+};
+Beverage.prototype.brew = function(){}; // 空方法，应该由子类重写
+Beverage.prototype.pourInCup = function(){}; // 空方法，应该由子类重写
+Beverage.prototype.addCondiments = function(){}; // 空方法，应该由子类重写
+Beverage.prototype.init = function(){
+	this.boilWater();
+	this.brew();
+	this.pourInCup();
+	this.addCondiments();
+};
+</code></pre></td></tr></table>
+</div>
+</div><p>接下来我们要创建咖啡类和茶类，并让它们继承抽象类:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 冲咖啡
+var Coffee = function(){};
+Coffee.prototype = new Beverage();
+Coffee.prototype.brew = function() {
+	console.log( &#39;用沸水冲泡咖啡&#39; );
+}
+Coffee.prototype.pourInCup = function() {
+	console.log( &#39;把咖啡倒进杯子&#39; );
+}
+Coffee.prototype.addCondiments = function() {
+	console.log( &#39;加糖和牛奶&#39; );
+}
+var Coffee = new Coffee();
+Coffee.init();
+
+// 冲茶叶
+var Tea = function(){};
+Tea.prototype = new Beverage();
+Tea.prototype.brew = function() {
+	console.log( &#39;用沸水冲泡茶叶&#39; );
+}
+Tea.prototype.pourInCup = function() {
+	console.log( &#39;把茶倒进杯子&#39; );
+}
+Tea.prototype.addCondiments = function() {
+	console.log( &#39;加柠檬&#39; );
+}
+var Tea = new Tea();
+Tea.init();
+</code></pre></td></tr></table>
+</div>
+</div><p>那么在上面的例子中，到底谁才是所谓的模板方法呢?答案是 <code>Beverage.prototype.init</code>。</p>
+<p><code>Beverage.prototype.init</code> 被称为模板方法的原因是，该方法中封装了子类的算法框架，它作为一个算法的模板，指导子类以何种顺序去执行哪些方法。在 <code>Beverage.prototype.init</code> 方法中，算法内的每一个步骤都清楚地展示在我们眼前。</p>
+<h2 id="好莱坞原则">好莱坞原则</h2>
+<p>我们要引入一个新的设计原则——著名的“好莱坞原则”。</p>
+<p>好莱坞原则简单来说就是：“别找我们，我们来找你”，是一种反向的控制结构，指的是父类调用一个类的操作。</p>
+<p>在这一原则的指导下，模板方法模式就是允许底层组件将自己挂钩到高层组件中，而高层组件会决定什么时候、以何种方式去使用这些底层组件。</p>
+<p>在好莱坞原则的指导之下，下面这段代码可以达到和使用继承一样的效果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var Beverage = function(param) {
+
+	var boilWater = function() {
+		console.log( &#39;0 把水煮沸&#39; );
+	};
+
+	var brew = param.brew || function() {
+		throw new Error( &#39;必须传递 brew 方法&#39; );
+	};
+
+	var pourInCup = param.pourInCup || function() {
+		throw new Error( &#39;必须传递 pourInCup 方法&#39; );
+	};
+
+	var addCondiments = param.addCondiments || function() {
+		throw new Error( &#39;必须传递 addCondiments 方法&#39; );
+	};
+
+	var F = function(){};
+
+	F.prototype.init = function(){
+		boilWater();
+	    brew();
+		pourInCup();
+		addCondiments();
+	};
+
+	return F;
+};
+
+var Coffee = Beverage({
+	brew: function() {
+		console.log( &#39;1 用沸水冲泡咖啡&#39; );
+	},
+	pourInCup: function() {
+		console.log( &#39;2 把咖啡倒进杯子&#39; );
+	},
+	addCondiments: function() {
+		console.log( &#39;3 加糖和牛奶&#39; );
+	}
+});
+
+var coffee = new Coffee();
+coffee.init();
+
+var Tea = Beverage({
+	brew: function() {
+		console.log( &#39;1 用沸水浸泡茶叶&#39; );
+	},
+	pourInCup: function(){
+		console.log( &#39;2 把茶倒进杯子&#39; );
+	},
+	addCondiments: function() {
+		console.log( &#39;3 加柠檬&#39; );
+	}
+});
+
+var tea = new Tea();
+tea.init();
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>模板方法应用于下列情况：</p>
+<ul>
+<li>一次性实现一个算法的不变的部分，并将可变的行为留给子类来实现</li>
+<li>各子类中公共的行为应被提取出来并集中到一个公共父类中的避免代码重复，不同之处分离为新的操作，最后，用一个钓鱼这些新操作的模板方法来替换这些不同的代码</li>
+<li>控制子类扩展，模板方法只在特定点调用“hook”操作，这样就允许在这些点进行扩展</li>
+</ul>
+<p>和策略模式不同，模板方法使用继承来改变算法的一部分，而策略模式使用委托来改变整个算法。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">ZHIKING</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-04-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+          <a href="/tags/js/">js</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2017/js-dp-flyweight/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">设计模式之享元模式(Flyweight)</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2017/js-dp-publish-subscribe/">
+            <span class="next-text nav-default">设计模式之发布/订阅模式(Publish/Subscribe)</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'NMSmBidAFpBuTSH8keGTVxsp-gzGzoHsz',
+        appKey: 'hyRs458vliUABVCeqmXstLsE',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '看完了，你有啥想吐槽的...',
+        visitor:  false 
+    });
+  </script>
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="zyj1022/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zyj10222@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/zyj1022" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/zyj1022" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+  <a href="http://www.beian.miit.gov.cn">沪ICP备17033498号</a>
+
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">ZHIKING</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+
+<script src="/js/search.js" async="true"></script>
+  
+  
+  <div id="ex1" class="modal">
+    <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
+</div>
+  </div>
+
+</body>
+</html>

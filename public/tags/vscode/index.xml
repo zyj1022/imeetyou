@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vscode on 知也无涯</title>
+    <link>/tags/vscode/</link>
+    <description>Recent content in vscode on 知也无涯</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>ZHIKING</copyright>
+    <lastBuildDate>Sat, 12 May 2018 10:49:46 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Atom和VSCode的插件同步方法</title>
+      <link>/post/2018/atom-vscode-sync-settings/</link>
+      <pubDate>Sat, 12 May 2018 10:49:46 +0800</pubDate>
+      
+      <guid>/post/2018/atom-vscode-sync-settings/</guid>
+      <description>在我们换电脑和开发环境的时候，自己使用编辑器的一些插件，往往还的重新下载，不过现在这些编辑器提供了，同步方法，下面就简单说一下，不同电脑如何</description>
+    </item>
+    
+  </channel>
+</rss>

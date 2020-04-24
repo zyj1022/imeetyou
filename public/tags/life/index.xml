@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>life on 知也无涯</title>
+    <link>/tags/life/</link>
+    <description>Recent content in life on 知也无涯</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>ZHIKING</copyright>
+    <lastBuildDate>Tue, 03 Jul 2018 15:39:26 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>12306购票用户体验之身份证问题</title>
+      <link>/post/2018/12306-id-card-problem/</link>
+      <pubDate>Fri, 01 Jun 2018 11:27:16 +0800</pubDate>
+      
+      <guid>/post/2018/12306-id-card-problem/</guid>
+      <description>最近遇到了12306的一个大坑，说起来是这样： 之前在APP或官网登记身份证并成功购买过车票，那么购票人的信息就会被保存在当前账户下，下次购买</description>
+    </item>
+    
+    <item>
+      <title>知识≠技术≠财富</title>
+      <link>/post/2017/2017-04-20/</link>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/2017-04-20/</guid>
+      <description>很多人感慨，不是上大学被大学上了。昏昏然步入社会，成为奔波劳碌的拼命蜗居一族。在如今信息爆炸的时代，我觉得拼的其实是你知识到财富的转化率。 思</description>
+    </item>
+    
+    <item>
+      <title>Kindle 书籍源下载推荐</title>
+      <link>/post/2017/kindle-book/</link>
+      <pubDate>Tue, 28 Mar 2017 12:35:46 +0800</pubDate>
+      
+      <guid>/post/2017/kindle-book/</guid>
+      <description>近日重拾公司所发kindle，之前一度觉得手机阅读完全可以替代这个产品，但手机看pdf文件，还是不够舒适，虽然是无背光版的，但在上下班路上的</description>
+    </item>
+    
+    <item>
+      <title>归零重来</title>
+      <link>/post/2017/2017-03-13/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/2017-03-13/</guid>
+      <description>拿起前端三剑客再打磨一遍吧。</description>
+    </item>
+    
+    <item>
+      <title>三只小猪与邋遢大王</title>
+      <link>/post/2017/2017-03-01/</link>
+      <pubDate>Wed, 01 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/2017-03-01/</guid>
+      <description>每天晚上讲给儿子的睡前故事总是在我儿时的动画片里搜索与混搭，《邋遢大王》故事里经典的智慧锁，断断续续记得一段，不得已，又陪儿子看了一遍动画片</description>
+    </item>
+    
+    <item>
+      <title>iPhone丢失后除了肉疼还该做些什么</title>
+      <link>/post/2016/2016-09-22/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/2016-09-22/</guid>
+      <description>很不幸，购买未满一年的iphone6s plus在车上被小偷摸了，除了感慨自己的不小心之外，更多的是怎么避免更多损失，找回的希望很渺茫，报警备</description>
+    </item>
+    
+    <item>
+      <title>对不起，离开你</title>
+      <link>/post/2015/2015-11-10/</link>
+      <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/2015-11-10/</guid>
+      <description>对不起——电影《滚蛋吧，肿瘤君》主题曲 专辑：对不起 歌手：小柯 对不起离开你 不能再陪你 抱歉了让你伤心 最后一次答应我别再惦记 感谢你为我送行 来世相遇</description>
+    </item>
+    
+  </channel>
+</rss>

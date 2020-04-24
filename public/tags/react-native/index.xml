@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react-native on 知也无涯</title>
+    <link>/tags/react-native/</link>
+    <description>Recent content in react-native on 知也无涯</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>ZHIKING</copyright>
+    <lastBuildDate>Tue, 15 Nov 2016 16:46:11 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何在React Native中的使用自定义iconfont</title>
+      <link>/post/2016/react-native-iconfont/</link>
+      <pubDate>Tue, 15 Nov 2016 16:46:11 +0000</pubDate>
+      
+      <guid>/post/2016/react-native-iconfont/</guid>
+      <description>React Native中的iconfont 关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 react-native-vector-icons, 这个库支</description>
+    </item>
+    
+  </channel>
+</rss>
