@@ -7,53 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>ZHIKING</copyright>
-    <lastBuildDate>Thu, 31 Aug 2017 15:43:48 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 18:37:16 +0800</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>English</title>
-      <link>/categories/english/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
+      <title>frontend</title>
+      <link>/categories/frontend/</link>
+      <pubDate>Tue, 21 Apr 2020 18:37:16 +0800</pubDate>
       
-      <guid>/categories/english/</guid>
+      <guid>/categories/frontend/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>日本語</title>
-      <link>/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
-      <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
+      <title>life</title>
+      <link>/categories/life/</link>
+      <pubDate>Fri, 01 Jun 2018 11:27:16 +0800</pubDate>
       
-      <guid>/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>中文</title>
-      <link>/categories/%E4%B8%AD%E6%96%87/</link>
-      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
-      
-      <guid>/categories/%E4%B8%AD%E6%96%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>/categories/shortcodes/</link>
-      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
-      
-      <guid>/categories/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>/categories/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>/categories/syntax-highlighting/</guid>
+      <guid>/categories/life/</guid>
       <description></description>
     </item>
     
