@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://zyj1022.github.io/imeetyou/sitemap.xml
+Sitemap: http/www.imeetyou.net/sitemap.xml
