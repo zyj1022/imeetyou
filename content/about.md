@@ -1,24 +1,21 @@
 ---
 title: "About"
-date: 2020-04-19T21:38:52+08:00
+date: 2017-08-20T21:38:52+08:00
+lastmod: 2017-08-28T21:41:52+08:00
 menu: "main"
 weight: 50
+
 ---
 
+Hugo is a static site engine written in Go.
 
-追溯博客记录，大概从2006年就开始，最早使用 [pjblog](http://bbs.pjhome.net/),
-也因为喜欢，出过几款还算可以的博客主题皮肤。一直使用了好多年，那个时候没有发现 markdown
 
-后来转战 [jeklly](http://jekyllcn.com/),老博客内容未转录，封存到了老电脑💻上面，就断断续续。
+It makes use of a variety of open source projects including:
 
-现在主要考虑静态生成，快速部署，从 hexo 又转到了 hugo，综合对比账号觉得hugo在各个方面算是比较理想的了，站点生成速度，打开速度会比较快。
+* [Cobra](https://github.com/spf13/cobra)
+* [Viper](https://github.com/spf13/viper)
+* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
+* [Cast](https://github.com/spf13/cast)
 
-这里记录的学习生活的随笔, 内容比较随意, 大家将就着看。
-
-小小的计划，将之前 pjblog 的皮肤转过 hugo 来
-
-翻出之前论坛的截图，记录一下吧。
-
-![轻松管理](../../static/images/001.png)
-
+Learn more and contribute on [GitHub](https://github.com/gohugoio).
 
