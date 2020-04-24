@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http/www.imeetyou.net/sitemap.xml
+Sitemap: /sitemap.xml
