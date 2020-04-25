@@ -1,0 +1,105 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>webpack4 optimization 介绍 - 知也无涯</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="ZHIKING"><meta name=description content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中"><meta name=keywords content="Hugo,blog,智的博客"><meta name=generator content="Hugo 0.69.0 with theme even"><link rel=canonical href=/post/2020/webpac4-optimization/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="webpack4 optimization 介绍"><meta property="og:description" content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中"><meta property="og:type" content="article"><meta property="og:url" content="/post/2020/webpac4-optimization/"><meta property="article:published_time" content="2020-04-21T09:47:26+08:00"><meta property="article:modified_time" content="2020-04-21T09:47:26+08:00"><meta itemprop=name content="webpack4 optimization 介绍"><meta itemprop=description content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中"><meta itemprop=datePublished content="2020-04-21T09:47:26+08:00"><meta itemprop=dateModified content="2020-04-21T09:47:26+08:00"><meta itemprop=wordCount content="1723"><meta itemprop=keywords content="webpack,frontend,"><meta name=twitter:card content="summary"><meta name=twitter:title content="webpack4 optimization 介绍"><meta name=twitter:description content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script data-ad-client=ca-pub-3216129127646136 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/js/baidutongji.js async></script><script src=/js/baidutuisong.js async></script><link rel=stylesheet href=/css/search.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>知也无涯</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>知也无涯</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><a href=#ex1 rel=modal:open><i class="fas fa-search fa-fw"></i></a></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>webpack4 optimization 介绍</h1><div class=post-meta><span class=post-time>2020-04-21</span><div class=post-category><a href=/categories/frontend/>frontend</a></div><span class=more-meta>约 1723 字</span>
+<span class=more-meta>预计阅读 4 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#splitchunks-基本配置>splitChunks 基本配置</a></li><li><a href=#cachegroups-缓存组>cacheGroups 缓存组</a></li></ul></nav></div></div><div class=post-content><h1 id=webpack4-optimizationhttpswwwwebpackjscompluginssplit-chunks-plugin-使用介绍><a href=https://www.webpackjs.com/plugins/split-chunks-plugin/>webpack4 optimization</a> 使用介绍</h1><p>从webpack4开始官方移除了 commonchunk 插件，改用了 <code>optimization</code> 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中的一些配置参考介绍：</p><p>可以实现很多功能，最常见的功能是：</p><ul><li>three shaking 只支持ES Module模块的引入，删除没有引用的模块打包</li><li>Code Splitting 拆分代码，提高执行效率和用户体验</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/**
+   * webpack中实现代码分割的两种方式：
+   * 1.同步代码：只需要在webpack配置文件总做optimization的配置即可
+   * 2.异步代码(import)：异步代码，无需做任何配置，会自动进行代码分割，放置到新的文件中
+   */
+  optimization: {
+    splitChunks: {
+      chunks: &#34;all&#34;,            //async异步代码分割 initial同步代码分割 all同步异步分割都开启
+      minSize: 30000,           //字节 引入的文件大于30kb才进行分割
+      //maxSize: 50000,         //50kb，尝试将大于50kb的文件拆分成n个50kb的文件
+      minChunks: 1,             //模块至少使用次数
+      maxAsyncRequests: 5,      //同时加载的模块数量最多是5个，只分割出同时引入的前5个文件
+      maxInitialRequests: 3,    //首页加载的时候引入的文件最多3个
+      automaticNameDelimiter: &#39;~&#39;, //缓存组和生成文件名称之间的连接符
+      name: true,                  //缓存组里面的filename生效，覆盖默认命名
+      cacheGroups: { //缓存组，将所有加载模块放在缓存里面一起分割打包
+        vendors: {  //自定义打包模块
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10, //优先级，先打包到哪个组里面，值越大，优先级越高
+          filename: &#39;vendors.js&#39;,
+        },
+        default: { //默认打包模块
+          priority: -20,
+          reuseExistingChunk: true, //模块嵌套引入时，判断是否复用已经被打包的模块
+          filename: &#39;common.js&#39;
+        }
+      }
+    }
+  }
+
+</code></pre></td></tr></table></div></div><h2 id=splitchunks-基本配置>splitChunks 基本配置</h2><ul><li><p>1.chunks：分割代码的模式（默认配置是async）</p><ul><li><code>async</code> 异步代码分割模式：只分割出异步引入的模块 （动态加载import()）</li><li><code>initial</code> 同步代码分割模式：只分割同步引入的模块</li><li><code>all</code> 同步异步都分割模式：在所有配置条件都满足的情况下，无论如何引入模块都会进行分割</li></ul></li><li><p>2.<code>minSize</code> 和 <code>maxSize</code> （单位：字节）
+<code>minSize</code> 指的是引入的模块的最小值
+<code>maxSize</code> 指的是引入的模块的最大值，当引入的模块大小大于最大值时，webpack 会尝试将这个模块以最大值为准分割成多个模块，前提是这个模块可以分割，比如 lodash 的提交大于50KB，那么设置 <code>maxSize：5000</code> 时，依然打包出一个文件来，故此属性一般不用</p></li><li><p>3.<code>minChunks</code>：模块至少使用次数(<strong>值必须设置为大于等于1的数</strong>)
+当值为2时，代表只引用了一次的模块不做分割打包处理</p></li><li><p>4.<code>maxAsyncRequests</code>：同时加载的模块数量最大值(<strong>值必须设置为大于等于1的数</strong>)
+也就是用来限制异步模块内部的并行最大请求数的，说白了你可以理解为是每个import()它里面的最大并行请求数量</p></li><li><p>5.<code>maxInitialRequests</code>：首次加载引入模块可分割的最大值(<strong>值必须设置为大于等于1的数</strong>)，也就是用来限制入口的拆分数量的参数。</p></li><li><p>6.<code>automaticNameDelimiter</code>：缓存组名称和生成文件名称之间的连接字符串</p></li><li><p>7.<code>name</code>： 设置为 <code>true</code> 时，缓存组里面的 filename 生效，覆盖默认命名方式</p></li></ul><h2 id=cachegroups-缓存组>cacheGroups 缓存组</h2><ul><li><p><code>cacheGroup</code> 必须同时满足各个条件才能生效, 例如 <code>minSize</code> 或是 <code>minChunks</code> 等条件必须同时满足可以拆分</p></li><li><p><code>splitChunks</code> 的配置项都是作用于 <code>cacheGroup</code> 上的，如果将 <code>cacheGroup</code> 的默认两个分组 <code>vendor</code> 和 <code>default</code> 设置为 <code>false</code> ，则 <code>splitChunks</code> 就不会起作用</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>cacheGroups: { // 缓存组，将所有加载模块放在缓存里面一起分割打包
+  vendors: {  // 自定义打包模块
+    test: /[\\/]node_modules[\\/]/,
+    priority: -10, // 优先级，先打包到哪个组里面，值越大，优先级越高
+    filename: &#39;vendors.js&#39;,
+  },
+  default: { //默认打包模块
+    priority: -20,
+    reuseExistingChunk: true, // 模块嵌套引入时，判断是否复用已经被打包的模块
+    filename: &#39;common.js&#39;
+  }
+}
+</code></pre></td></tr></table></div></div><p><code>vendors</code> 为自定义打包模块，当 <code>vendors.test</code> 设置为 <code>/[\/]node_modules[\/]/</code> ，webpack 将把使用 npm 命令安装的第三方库打包到 <code>vendors</code> 缓存组里面。</p><ul><li><p>1.<code>test</code>：正则匹配打包分离的文件条件</p></li><li><p>2.<code>priority</code>：定义打包组的打包顺序优先级，值越大，优先级越高</p></li><li><p>3.<code>filename</code>：打包模块输出的文件名，默认为 缓存组名称（vendors） + 连接字符串（automaticNameDelimiter） + 模块入口文件（main.js） 例如：vendors~main.js</p><ul><li><code>default</code> 为默认模块打包的缓存组，一般情况下打包业务模块编码。</li><li><code>reuseExistingChunk：</code> 模块嵌套引入时，判断是否复用已经被打包的模块</li></ul></li></ul><blockquote><p>同类文章</p></blockquote><blockquote><p><a href=https://www.cnblogs.com/kwzm/p/10314438.html>理解webpack4.splitChunks</a></p></blockquote><blockquote><p><a href=https://www.cnblogs.com/kwzm/p/10315080.html>理解webpack4.splitChunks之cacheGroups</a></p></blockquote></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>ZHIKING</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2020-04-21</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/webpack/>webpack</a>
+<a href=/tags/frontend/>frontend</a></div><nav class=post-nav><a class=prev href=/post/2020/hugo-github-actions/><i class="iconfont icon-left"></i><span class="prev-text nav-default">用 Hugo 配合 Github Actions 自动构建Blog</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2020/2020-04-01-zeronet/><span class="next-text nav-default">ZeroNet 使用指南</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=vcomments></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=//unpkg.com/valine/dist/Valine.min.js></script><script type=text/javascript>new Valine({el:'#vcomments',appId:'NMSmBidAFpBuTSH8keGTVxsp-gzGzoHsz',appKey:'hyRs458vliUABVCeqmXstLsE',notify:false,verify:false,avatar:'mm',placeholder:'看完了，你有啥想吐槽的...',visitor:false});</script><script src=https://utteranc.es/client.js repo=zyj1022/ issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:zyj10222@126.com class="iconfont icon-email" title=email></a><a href=https://github.com/zyj1022 class="iconfont icon-github" title=github></a><a href=https://weibo.com/zyj1022 class="iconfont icon-weibo" title=weibo></a><a href=/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<a href=http://www.beian.miit.gov.cn>沪ICP备17033498号</a>
+<span class=copyright-year>&copy;
+2015 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>ZHIKING</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js></script><script src=https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js></script><script src=https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js></script><script src=/js/search.js async></script><div id=ex1 class=modal><div class=aa-input-container id=aa-input-container><input type=search id=aa-search-input class=aa-input-search placeholder="Search for titles or URIs..." name=search autocomplete=off><svg class="aa-input-icon" viewBox="654 -372 1664 1664"><path d="M1806 332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2 1481.3-116 1358-116s-228.8 43.8-316.5 131.5S910 208.7 910 332s43.8 228.8 131.5 316.5S1234.7 780 1358 780s228.8-43.8 316.5-131.5S1806 455.3 1806 332zm512 832c0 34.7-12.7 64.7-38 90s-55.3 38-90 38c-36 0-66-12.7-90-38l-343-342c-119.3 82.7-252.3 124-399 124-95.3.0-186.5-18.5-273.5-55.5s-162-87-225-150-113-138-150-225S654 427.3 654 332s18.5-186.5 55.5-273.5 87-162 150-225 138-113 225-150S1262.7-372 1358-372s186.5 18.5 273.5 55.5 162 87 225 150 113 138 150 225S2062 236.7 2062 332c0 146.7-41.3 279.7-124 399l343 343C2305.7 1098.7 2318 1128.7 2318 1164z" /></svg></div></div></body></html>
