@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>用 Hugo 配合 Github Actions 自动构建Blog - 知也无涯</title>
+  <title>webpack4 optimization 介绍 - 知也无涯</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="ZHIKING" /><meta name="description" content="用 Hugo 配合 Github Actions 自动构建Blog 使用hugo来搭建blog，已经有人比较全面的介绍了如何利用github actions来自动构建。 这里我来补充一" /><meta name="keywords" content="Hugo, blog, 智的博客" />
+<meta name="author" content="ZHIKING" /><meta name="description" content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中" /><meta name="keywords" content="Hugo, blog, 智的博客" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="/post/2020/hugo-github-actions/" />
+<link rel="canonical" href="/post/2020/webpac4-optimization/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,23 +38,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="用 Hugo 配合 Github Actions 自动构建Blog" />
-<meta property="og:description" content="用 Hugo 配合 Github Actions 自动构建Blog 使用hugo来搭建blog，已经有人比较全面的介绍了如何利用github actions来自动构建。 这里我来补充一" />
+<meta property="og:title" content="webpack4 optimization 介绍" />
+<meta property="og:description" content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/post/2020/hugo-github-actions/" />
-<meta property="article:published_time" content="2020-04-21T18:37:16+08:00" />
-<meta property="article:modified_time" content="2020-04-21T18:37:16+08:00" />
-<meta itemprop="name" content="用 Hugo 配合 Github Actions 自动构建Blog">
-<meta itemprop="description" content="用 Hugo 配合 Github Actions 自动构建Blog 使用hugo来搭建blog，已经有人比较全面的介绍了如何利用github actions来自动构建。 这里我来补充一">
-<meta itemprop="datePublished" content="2020-04-21T18:37:16&#43;08:00" />
-<meta itemprop="dateModified" content="2020-04-21T18:37:16&#43;08:00" />
-<meta itemprop="wordCount" content="825">
+<meta property="og:url" content="/post/2020/webpac4-optimization/" />
+<meta property="article:published_time" content="2020-04-21T09:47:26+08:00" />
+<meta property="article:modified_time" content="2020-04-21T09:47:26+08:00" />
+<meta itemprop="name" content="webpack4 optimization 介绍">
+<meta itemprop="description" content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中">
+<meta itemprop="datePublished" content="2020-04-21T09:47:26&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-21T09:47:26&#43;08:00" />
+<meta itemprop="wordCount" content="1723">
 
 
 
-<meta itemprop="keywords" content="Hugo,Github," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="用 Hugo 配合 Github Actions 自动构建Blog"/>
-<meta name="twitter:description" content="用 Hugo 配合 Github Actions 自动构建Blog 使用hugo来搭建blog，已经有人比较全面的介绍了如何利用github actions来自动构建。 这里我来补充一"/>
+<meta itemprop="keywords" content="webpack,frontend," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="webpack4 optimization 介绍"/>
+<meta name="twitter:description" content="webpack4 optimization 使用介绍 从webpack4开始官方移除了 commonchunk 插件，改用了 optimization 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,15 +138,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">用 Hugo 配合 Github Actions 自动构建Blog</h1>
+      <h1 class="post-title">webpack4 optimization 介绍</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-04-21 </span>
         <div class="post-category">
             <a href="/categories/frontend/"> frontend </a>
             </div>
-          <span class="more-meta"> 约 825 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 约 1723 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
     </header>
@@ -156,43 +156,20 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#初始化-github-仓库">初始化 github 仓库</a></li>
-    <li><a href="#安装-hugohttpsgohugoiogetting-started">安装 <a href="https://gohugo.io/getting-started/">hugo</a></a></li>
-    <li><a href="#github-actions-自动构建">Github Actions 自动构建</a>
-      <ul>
-        <li><a href="#创建-ssh-deploy-key">创建 SSH Deploy Key</a></li>
-      </ul>
-    </li>
-    <li><a href="#推送到-github">推送到 Github</a></li>
+    <li><a href="#splitchunks-基本配置">splitChunks 基本配置</a></li>
+    <li><a href="#cachegroups-缓存组">cacheGroups 缓存组</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="用-hugo-配合-github-actions-自动构建blog">用 Hugo 配合 Github Actions 自动构建Blog</h1>
-<p>使用hugo来搭建blog，已经有人比较全面的介绍了如何利用github actions来自动构建。</p>
-<p>这里我来补充一些细节。</p>
-<h2 id="初始化-github-仓库">初始化 github 仓库</h2>
-<p>可以直接创建一个项目，之后创建分支 <code>develop</code>、<code>gh-pages</code> 分支</p>
-<h2 id="安装-hugohttpsgohugoiogetting-started">安装 <a href="https://gohugo.io/getting-started/">hugo</a></h2>
-<p>按照官网步骤很容易</p>
+      <h1 id="webpack4-optimizationhttpswwwwebpackjscompluginssplit-chunks-plugin-使用介绍"><a href="https://www.webpackjs.com/plugins/split-chunks-plugin/">webpack4 optimization</a> 使用介绍</h1>
+<p>从webpack4开始官方移除了 commonchunk 插件，改用了 <code>optimization</code> 属性进行更加灵活的配置，下面的代码即是optimize.splitChunks 中的一些配置参考介绍：</p>
+<p>可以实现很多功能，最常见的功能是：</p>
 <ul>
-<li>1、<code>brew install hugo</code></li>
-<li>2、<code>hugo new site quickstart</code></li>
-<li>3、添加主题：<code>git clone https://github.com/olOwOlo/hugo-theme-even themes/even</code></li>
+<li>three shaking 只支持ES Module模块的引入，删除没有引用的模块打包</li>
+<li>Code Splitting 拆分代码，提高执行效率和用户体验</li>
 </ul>
-<p>这里 <code>even</code> 主题还不错，就安装了。主题内会内置exampleSite文件，进入目录复制，然后在安装目录下覆盖粘贴。</p>
-<p><code>hugo server -D</code> 就可以看到内容了。</p>
-<h2 id="github-actions-自动构建">Github Actions 自动构建</h2>
-<p>这里主要说一下自动构建部分，如果没搞过会比较容易摸不着头脑。</p>
-<p>首先我们要明白你自动构建监听的是<code>develop</code> 分支，步骤如下：</p>
-<ul>
-<li>检出代码</li>
-<li>安装 Hugo 环境</li>
-<li>编译 Hugo</li>
-<li>将 public 下的文件夹推送到 <code>gh-pages</code> 分支</li>
-</ul>
-<p>在博客目录下新建 <code>.github/workflows</code> 里面新建一个 <code>gh_pages.yml</code> 文件，复制以下代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -224,66 +201,83 @@
 </span><span class="lnt">27
 </span><span class="lnt">28
 </span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">name: GitHub Page Deploy
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/**
+   * webpack中实现代码分割的两种方式：
+   * 1.同步代码：只需要在webpack配置文件总做optimization的配置即可
+   * 2.异步代码(import)：异步代码，无需做任何配置，会自动进行代码分割，放置到新的文件中
+   */
+  optimization: {
+    splitChunks: {
+      chunks: &#34;all&#34;,            //async异步代码分割 initial同步代码分割 all同步异步分割都开启
+      minSize: 30000,           //字节 引入的文件大于30kb才进行分割
+      //maxSize: 50000,         //50kb，尝试将大于50kb的文件拆分成n个50kb的文件
+      minChunks: 1,             //模块至少使用次数
+      maxAsyncRequests: 5,      //同时加载的模块数量最多是5个，只分割出同时引入的前5个文件
+      maxInitialRequests: 3,    //首页加载的时候引入的文件最多3个
+      automaticNameDelimiter: &#39;~&#39;, //缓存组和生成文件名称之间的连接符
+      name: true,                  //缓存组里面的filename生效，覆盖默认命名
+      cacheGroups: { //缓存组，将所有加载模块放在缓存里面一起分割打包
+        vendors: {  //自定义打包模块
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10, //优先级，先打包到哪个组里面，值越大，优先级越高
+          filename: &#39;vendors.js&#39;,
+        },
+        default: { //默认打包模块
+          priority: -20,
+          reuseExistingChunk: true, //模块嵌套引入时，判断是否复用已经被打包的模块
+          filename: &#39;common.js&#39;
+        }
+      }
+    }
+  }
 
-on:
-  push:
-    branches:
-      - develop
-jobs:
-  deploy:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true  # Fetch Hugo themes
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: &#39;0.69.0&#39;
-
-      - name: Build
-        run: hugo --minify
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./public
-          publish_branch: gh-pages  # deploying branch
 </code></pre></td></tr></table>
 </div>
-</div><p>这里 <code>hugo-version</code> 版本根据你实时安装时候的来设置。</p>
-<p>以上的配置参数可以参考 <a href="https://github.com/peaceiris/actions-hugo">actions-hugo</a>、 <a href="https://github.com/marketplace/actions/github-pages-action">github-pages-action</a>、<a href="https://github.com/peaceiris/actions-gh-pages">actions-gh-pages</a>这里。</p>
-<h3 id="创建-ssh-deploy-key">创建 SSH Deploy Key</h3>
-<p>进入目录，使用以下命令生成您的部署密钥。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -b 4096 -C &#34;$(git config user.email)&#34; -f gh-pages -N &#34;&#34;
-# You will get 2 files:
-#   gh-pages.pub (public key)
-#   gh-pages     (private key)
-</code></pre></td></tr></table>
-</div>
-</div><p>在目录下会生成 <code>gh-pages.pub</code> 和 <code>gh-pages</code> 两个文件。</p>
-<p>然后在 github 上面你的项目中找到 <code>Settings</code> 标签，点击进入，在左边 <code>options</code> 列表里：</p>
+</div><h2 id="splitchunks-基本配置">splitChunks 基本配置</h2>
 <ul>
-<li>找到 <code>Deploy keys</code> 点击 <code>Add deploy keys</code> 将上面生成文件 <code>gh-pages.pub</code> 的内容粘贴进去并保存。</li>
-<li>找到 <code>Secrets</code> 点击 <code>Add a new secrets</code> 将上面生成文件 <code>gh-pages</code> 的内容粘贴进去并保存。</li>
+<li>
+<p>1.chunks：分割代码的模式（默认配置是async）</p>
+<ul>
+<li><code>async</code> 异步代码分割模式：只分割出异步引入的模块 （动态加载import()）</li>
+<li><code>initial</code> 同步代码分割模式：只分割同步引入的模块</li>
+<li><code>all</code> 同步异步都分割模式：在所有配置条件都满足的情况下，无论如何引入模块都会进行分割</li>
 </ul>
-<p>这样我们的 SSH Deploy Key 就创建完成。</p>
-<h2 id="推送到-github">推送到 Github</h2>
-<p>复制如下代码新建文件 <code>deploy.sh</code></p>
+</li>
+<li>
+<p>2.<code>minSize</code> 和 <code>maxSize</code> （单位：字节）
+<code>minSize</code> 指的是引入的模块的最小值
+<code>maxSize</code> 指的是引入的模块的最大值，当引入的模块大小大于最大值时，webpack 会尝试将这个模块以最大值为准分割成多个模块，前提是这个模块可以分割，比如 lodash 的提交大于50KB，那么设置 <code>maxSize：5000</code> 时，依然打包出一个文件来，故此属性一般不用</p>
+</li>
+<li>
+<p>3.<code>minChunks</code>：模块至少使用次数(<strong>值必须设置为大于等于1的数</strong>)
+当值为2时，代表只引用了一次的模块不做分割打包处理</p>
+</li>
+<li>
+<p>4.<code>maxAsyncRequests</code>：同时加载的模块数量最大值(<strong>值必须设置为大于等于1的数</strong>)
+也就是用来限制异步模块内部的并行最大请求数的，说白了你可以理解为是每个import()它里面的最大并行请求数量</p>
+</li>
+<li>
+<p>5.<code>maxInitialRequests</code>：首次加载引入模块可分割的最大值(<strong>值必须设置为大于等于1的数</strong>)，也就是用来限制入口的拆分数量的参数。</p>
+</li>
+<li>
+<p>6.<code>automaticNameDelimiter</code>：缓存组名称和生成文件名称之间的连接字符串</p>
+</li>
+<li>
+<p>7.<code>name</code>： 设置为 <code>true</code> 时，缓存组里面的 filename 生效，覆盖默认命名方式</p>
+</li>
+</ul>
+<h2 id="cachegroups-缓存组">cacheGroups 缓存组</h2>
+<ul>
+<li>
+<p><code>cacheGroup</code> 必须同时满足各个条件才能生效, 例如 <code>minSize</code> 或是 <code>minChunks</code> 等条件必须同时满足可以拆分</p>
+</li>
+<li>
+<p><code>splitChunks</code> 的配置项都是作用于 <code>cacheGroup</code> 上的，如果将 <code>cacheGroup</code> 的默认两个分组 <code>vendor</code> 和 <code>default</code> 设置为 <code>false</code> ，则 <code>splitChunks</code> 就不会起作用</p>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -298,39 +292,46 @@ jobs:
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="nb">echo</span> -e <span class="s2">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
-
-<span class="c1"># Build the project.</span>
-hugo -t even
-
-<span class="c1"># Add changes to git.</span>
-git add .
-
-<span class="c1"># Commit changes.</span>
-<span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;rebuilding site `date`&#34;</span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">1</span> <span class="o">]</span>
-  <span class="k">then</span> <span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
-<span class="k">fi</span>
-git commit -m <span class="s2">&#34;</span><span class="nv">$msg</span><span class="s2">&#34;</span>
-
-<span class="c1"># Push source and build repos.</span>
-git push origin develop
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cacheGroups: { // 缓存组，将所有加载模块放在缓存里面一起分割打包
+  vendors: {  // 自定义打包模块
+    test: /[\\/]node_modules[\\/]/,
+    priority: -10, // 优先级，先打包到哪个组里面，值越大，优先级越高
+    filename: &#39;vendors.js&#39;,
+  },
+  default: { //默认打包模块
+    priority: -20,
+    reuseExistingChunk: true, // 模块嵌套引入时，判断是否复用已经被打包的模块
+    filename: &#39;common.js&#39;
+  }
+}
 </code></pre></td></tr></table>
 </div>
-</div><p>运行 <code>bash deploy.sh</code> 执行上面的代码后，Github 收到 PUSH 后 Actions 就会自动开始构建了。</p>
+</div><p><code>vendors</code> 为自定义打包模块，当 <code>vendors.test</code> 设置为 <code>/[\/]node_modules[\/]/</code> ，webpack 将把使用 npm 命令安装的第三方库打包到 <code>vendors</code> 缓存组里面。</p>
+<ul>
+<li>
+<p>1.<code>test</code>：正则匹配打包分离的文件条件</p>
+</li>
+<li>
+<p>2.<code>priority</code>：定义打包组的打包顺序优先级，值越大，优先级越高</p>
+</li>
+<li>
+<p>3.<code>filename</code>：打包模块输出的文件名，默认为 缓存组名称（vendors） + 连接字符串（automaticNameDelimiter） + 模块入口文件（main.js） 例如：vendors~main.js</p>
+<ul>
+<li><code>default</code> 为默认模块打包的缓存组，一般情况下打包业务模块编码。</li>
+<li><code>reuseExistingChunk：</code> 模块嵌套引入时，判断是否复用已经被打包的模块</li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<p>原文章： <a href="https://www.nashome.cn/post/hugo-github-actions/">用 Hugo 配合 Github Actions 自动构建我的博客</a></p>
+<p>同类文章</p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.cnblogs.com/kwzm/p/10314438.html">理解webpack4.splitChunks</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.cnblogs.com/kwzm/p/10315080.html">理解webpack4.splitChunks之cacheGroups</a></p>
 </blockquote>
 
     </div>
@@ -352,17 +353,17 @@ git push origin develop
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/hugo/">Hugo</a>
-          <a href="/tags/github/">Github</a>
+          <a href="/tags/webpack/">webpack</a>
+          <a href="/tags/frontend/">frontend</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/2020/webpack-ant3x-import/">
+        <a class="prev" href="/post/2020/hugo-github-actions/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">ant3.x webpack打包被迫引进全部icons,如何按需引入</span>
+            <span class="prev-text nav-default">用 Hugo 配合 Github Actions 自动构建Blog</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/2020/webpac4-optimization/">
-            <span class="next-text nav-default">webpack4 optimization 介绍</span>
+        <a class="next" href="/post/2020/2020-04-01-zeronet/">
+            <span class="next-text nav-default">ZeroNet 使用指南</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

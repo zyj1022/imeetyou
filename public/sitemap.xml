@@ -2,15 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/post/2020/webpack-ant3x-import/</loc>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/antd/</loc>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
-    <lastmod>2020-04-21T18:37:16+08:00</lastmod>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/categories/frontend/</loc>
-    <lastmod>2020-04-21T18:37:16+08:00</lastmod>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/web/</loc>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/webpack/</loc>
+    <lastmod>2020-04-23T12:17:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,20 +72,6 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-04-21T18:37:16+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-04-21T18:37:16+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>/post/2020/hugo-github-actions/</loc>
     <lastmod>2020-04-21T18:37:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -52,7 +80,14 @@
   
   <url>
     <loc>/tags/frontend/</loc>
-    <lastmod>2020-04-01T13:37:56+08:00</lastmod>
+    <lastmod>2020-04-21T09:47:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2020/webpac4-optimization/</loc>
+    <lastmod>2020-04-21T09:47:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -235,13 +270,6 @@
   <url>
     <loc>/post/2018/js-iframe-height/</loc>
     <lastmod>2018-03-06T13:32:08+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/web/</loc>
-    <lastmod>2018-02-26T13:07:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
