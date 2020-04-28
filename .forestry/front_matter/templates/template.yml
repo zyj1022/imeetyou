@@ -5,7 +5,6 @@ fields:
 - type: text
   name: title
   label: title
-  description: 我是标题
 - type: datetime
   name: date
   label: date
