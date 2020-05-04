@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>ZHIKING</copyright>
-    <lastBuildDate>Thu, 23 Apr 2020 12:17:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2020 16:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WebPack 警告WARNING in asset size limit</title>
+      <link>/post/2020/webpack-%E8%AD%A6%E5%91%8Awarning-in-asset-size-limit/</link>
+      <pubDate>Mon, 27 Apr 2020 16:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/webpack-%E8%AD%A6%E5%91%8Awarning-in-asset-size-limit/</guid>
+      <description>WebPack 警告WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).解决 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).&amp;gt; This can impact web performance. 解决方法： WEBPACK中添加如下配置:</description>
+    </item>
     
     <item>
       <title>ant3.x webpack打包被迫引进全部icons,如何按需引入</title>
