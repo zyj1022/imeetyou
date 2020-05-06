@@ -1,59 +1,86 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>git commit 规范指南 - 知也无涯</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="ZHIKING"><meta name=description content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><meta name=keywords content="Hugo,blog,智的博客"><meta name=generator content="Hugo 0.69.0 with theme even"><link rel=canonical href=/post/2020/git-commit-%E8%A7%84%E8%8C%83%E6%8C%87%E5%8D%97/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="git commit 规范指南"><meta property="og:description" content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><meta property="og:type" content="article"><meta property="og:url" content="/post/2020/git-commit-%E8%A7%84%E8%8C%83%E6%8C%87%E5%8D%97/"><meta property="article:published_time" content="2020-05-05T16:00:00+00:00"><meta property="article:modified_time" content="2020-05-05T16:00:00+00:00"><meta itemprop=name content="git commit 规范指南"><meta itemprop=description content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><meta itemprop=datePublished content="2020-05-05T16:00:00+00:00"><meta itemprop=dateModified content="2020-05-05T16:00:00+00:00"><meta itemprop=wordCount content="1980"><meta itemprop=keywords content="frontend,git,"><meta name=twitter:card content="summary"><meta name=twitter:title content="git commit 规范指南"><meta name=twitter:description content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script data-ad-client=ca-pub-3216129127646136 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/js/baidutongji.js async></script><script src=/js/baidutuisong.js async></script><link rel=stylesheet href=/css/search.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>知也无涯</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>知也无涯</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><a href=#ex1 rel=modal:open><i class="fas fa-search fa-fw"></i></a></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>git commit 规范指南</h1><div class=post-meta><span class=post-time>2020-05-05</span><div class=post-category><a href=/categories/frontend/>frontend</a></div><span class=more-meta>约 1980 字</span>
-<span class=more-meta>预计阅读 4 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents></nav></div></div><div class=post-content><p>Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。</p><p>但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。</p><p>目前，社区有多种 Commit message 的写法规范。本文介绍 `Angular` 规范是目前使用最广的写法，比较合理和系统化，并且有配套的工具。</p><p>## Commit message 的作用</p><p>*<em>提供更多的历史信息，方便快速浏览</em>*</p><p>比如，下面的命令显示上次发布后的变动，每个commit占据一行。你只看行首，就知道某次 commit 的目的。</p><p>```
-$ git log HEAD &ndash;pretty=format:%s
-```</p><p>*<em>可以过滤某些commit（比如文档改动），便于快速查找信息</em>*</p><p>```
-$ git log HEAD &ndash;grep feature
-```</p><p>*<em>可以直接从commit生成Change log</em>*</p><p>Change Log 是发布新版本时，用来说明与上一个版本差异的文档，详见后文。</p><p>*<em>其他优点</em>*</p><p>- 可读性好，清晰，不必深入看代码即可了解当前commit的作用。
-- 为 Code Reviewing做准备
-- 方便跟踪工程历史
-- 让其他的开发者在运行 git blame 的时候想跪谢
-- 提高项目的整体质量，提高个人工程素质</p><p>## Commit message 的格式</p><p>每次提交，Commit message 都包括三个部分： `header` ， `body` 和 `footer` 。</p><p>```
-():</p><p>其中，`header` 是必需的， `body` 和 `footer` 可以省略。
-不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。</p><p>### Header</p><p>Header部分只有一行，包括三个字段：type（必需）、scope（可选）和 subject（必需）。</p><p>#### type</p><p>用于说明 commit 的类别，只允许使用下面7个标识。</p><p>- feat：新功能（feature）
-- fix：修补bug
-- docs：文档（documentation）
-- style： 格式（不影响代码运行的变动）
-- refactor：重构（即不是新增功能，也不是修改bug的代码变动）
-- test：增加测试
-- chore：构建过程或辅助工具的变动</p><p>如果type为 `feat` 和 `fix` ，则该 commit 将肯定出现在 Change log 之中。其他情况（`docs`、`chore`、`style`、`refactor`、`test`）由你决定，要不要放入 Change log，建议是不要。</p><p>#### scope</p><p>scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p><p>例如在Angular，可以是 `$location`, `$browser`, `$compile`, `$rootScope`, `ngHref`, `ngClick`, `ngView` 等。</p><p>如果你的修改影响了不止一个 `scope` ，你可以使用 `*` 代替。</p><p>#### subject</p><p>subject 是 commit 目的的简短描述，不超过50个字符。</p><p>#### 其他注意事项：</p><p>以动词开头，使用第一人称现在时，比如change，而不是changed或changes</p><p>第一个字母小写</p><p>结尾不加句号（.）</p><p>### Body</p><p>Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。</p><p>```
-More detailed explanatory text, if necessary. Wrap it to
-about 72 characters or so.</p><p>Further paragraphs come after blank lines.</p><p>- Bullet points are okay, too
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>git commit 规范指南 - 知也无涯</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="ZHIKING"><meta name=description content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><meta name=keywords content="Hugo,blog,智的博客"><meta name=generator content="Hugo 0.69.0 with theme even"><link rel=canonical href=/post/2020/git-commit-%E8%A7%84%E8%8C%83%E6%8C%87%E5%8D%97/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="git commit 规范指南"><meta property="og:description" content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><meta property="og:type" content="article"><meta property="og:url" content="/post/2020/git-commit-%E8%A7%84%E8%8C%83%E6%8C%87%E5%8D%97/"><meta property="article:published_time" content="2020-05-05T16:00:00+00:00"><meta property="article:modified_time" content="2020-05-05T16:00:00+00:00"><meta itemprop=name content="git commit 规范指南"><meta itemprop=description content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><meta itemprop=datePublished content="2020-05-05T16:00:00+00:00"><meta itemprop=dateModified content="2020-05-05T16:00:00+00:00"><meta itemprop=wordCount content="1831"><meta itemprop=keywords content="frontend,git,"><meta name=twitter:card content="summary"><meta name=twitter:title content="git commit 规范指南"><meta name=twitter:description content="Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。 目前，"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--><script data-ad-client=ca-pub-3216129127646136 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/js/baidutongji.js async></script><script src=/js/baidutuisong.js async></script><link rel=stylesheet href=/css/search.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>知也无涯</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>知也无涯</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><a href=#ex1 rel=modal:open><i class="fas fa-search fa-fw"></i></a></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>git commit 规范指南</h1><div class=post-meta><span class=post-time>2020-05-05</span><div class=post-category><a href=/categories/frontend/>frontend</a></div><span class=more-meta>约 1831 字</span>
+<span class=more-meta>预计阅读 4 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#commit-message-的作用>Commit message 的作用</a></li><li><a href=#commit-message-的格式>Commit message 的格式</a><ul><li><a href=#header>Header</a></li><li><a href=#body>Body</a></li><li><a href=#footer>Footer</a></li></ul></li><li><a href=#revert>Revert</a></li><li><a href=#git-commit-工具介绍>git commit 工具介绍</a><ul><li><a href=#commitizen>Commitizen</a></li><li><a href=#commitlinthttpscommitlintjsorg><a href=https://commitlint.js.org/#/>commitlint</a></a></li><li><a href=#生成-change-log>生成 Change log</a></li></ul></li></ul></nav></div></div><div class=post-content><p>Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。</p><p>但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。</p><p>目前，社区有多种 Commit message 的写法规范。本文介绍 <code>Angular</code> 规范是目前使用最广的写法，比较合理和系统化，并且有配套的工具。</p><h2 id=commit-message-的作用>Commit message 的作用</h2><p><strong>提供更多的历史信息，方便快速浏览</strong></p><p>比如，下面的命令显示上次发布后的变动，每个commit占据一行。你只看行首，就知道某次 commit 的目的。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ git log &lt;last tag&gt; HEAD --pretty=format:%s
+</code></pre></td></tr></table></div></div><p><strong>可以过滤某些commit（比如文档改动），便于快速查找信息</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ git log &lt;last release&gt; HEAD --grep feature
+</code></pre></td></tr></table></div></div><p><strong>可以直接从commit生成Change log</strong></p><p>Change Log 是发布新版本时，用来说明与上一个版本差异的文档，详见后文。</p><p><strong>其他优点</strong></p><ul><li>可读性好，清晰，不必深入看代码即可了解当前commit的作用。</li><li>为 Code Reviewing做准备</li><li>方便跟踪工程历史</li><li>让其他的开发者在运行 git blame 的时候想跪谢</li><li>提高项目的整体质量，提高个人工程素质</li></ul><h2 id=commit-message-的格式>Commit message 的格式</h2><p>每次提交，Commit message 都包括三个部分： <code>header</code> ， <code>body</code> 和 <code>footer</code> 。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+&lt;BLANK LINE&gt;
+&lt;body&gt;
+&lt;BLANK LINE&gt;
+&lt;footer&gt;
+</code></pre></td></tr></table></div></div><p>其中，<code>header</code> 是必需的， <code>body</code> 和 <code>footer</code> 可以省略。
+不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。</p><h3 id=header>Header</h3><p>Header部分只有一行，包括三个字段：type（必需）、scope（可选）和 subject（必需）。</p><h4 id=type>type</h4><p>用于说明 commit 的类别，只允许使用下面7个标识。</p><ul><li>feat：新功能（feature）</li><li>fix：修补bug</li><li>docs：文档（documentation）</li><li>style： 格式（不影响代码运行的变动）</li><li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li><li>test：增加测试</li><li>chore：构建过程或辅助工具的变动</li></ul><p>如果type为 <code>feat</code> 和 <code>fix</code> ，则该 commit 将肯定出现在 Change log 之中。其他情况（<code>docs</code>、<code>chore</code>、<code>style</code>、<code>refactor</code>、<code>test</code>）由你决定，要不要放入 Change log，建议是不要。</p><h4 id=scope>scope</h4><p>scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p><p>例如在Angular，可以是 <code>$location</code>, <code>$browser</code>, <code>$compile</code>, <code>$rootScope</code>, <code>ngHref</code>, <code>ngClick</code>, <code>ngView</code> 等。</p><p>如果你的修改影响了不止一个 <code>scope</code> ，你可以使用 <code>*</code> 代替。</p><h4 id=subject>subject</h4><p>subject 是 commit 目的的简短描述，不超过50个字符。</p><h4 id=其他注意事项>其他注意事项：</h4><p>以动词开头，使用第一人称现在时，比如change，而不是changed或changes</p><p>第一个字母小写</p><p>结尾不加句号（.）</p><h3 id=body>Body</h3><p>Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>More detailed explanatory text, if necessary.  Wrap it to 
+about 72 characters or so. 
+
+Further paragraphs come after blank lines.
+
+- Bullet points are okay, too
 - Use a hanging indent
-```</p><p>*<em>有两个注意点:</em>*</p><p>- 使用第一人称现在时，比如使用change而不是changed或changes。
-- 永远别忘了第2行是空行
-- 应该说明代码变动的动机，以及与以前行为的对比。</p><p>### Footer</p><p>Footer 部分只用于以下两种情况：</p><p>*<em>不兼容变动</em>*</p><p>如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。</p><p>```
-BREAKING CHANGE: isolate scope bindings definition has changed.</p><pre><code>To migrate the code follow the example below:
+</code></pre></td></tr></table></div></div><p><strong>有两个注意点:</strong></p><ul><li>使用第一人称现在时，比如使用change而不是changed或changes。</li><li>永远别忘了第2行是空行</li><li>应该说明代码变动的动机，以及与以前行为的对比。</li></ul><h3 id=footer>Footer</h3><p>Footer 部分只用于以下两种情况：</p><p><strong>不兼容变动</strong></p><p>如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>BREAKING CHANGE: isolate scope bindings definition has changed.
 
-Before:
+    To migrate the code follow the example below:
 
-scope: {
-  myAttr: 'attribute',
-}
+    Before:
 
-After:
+    scope: {
+      myAttr: &#39;attribute&#39;,
+    }
 
-scope: {
-  myAttr: '@',
-}
+    After:
 
-The removed \`inject\` wasn't generaly useful for directives so there should be no code using it.
-</code></pre><p>```</p><p>*<em>关闭 Issue</em>*</p><p>如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。</p><p>```
-Closes #234
-```
-## Revert</p><p>还有一种特殊情况，如果当前 `commit` 用于撤销以前的 commit，则必须以 `revert:` 开头，后面跟着被撤销 Commit 的 Header。</p><p>```
-revert: feat(pencil): add &lsquo;graphiteWidth&rsquo; option</p><p>This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
-```
-Body部分的格式是固定的，必须写成 `This reverts commit &lt;hash>.`，其中的hash是被撤销 commit 的 `SHA` 标识符。</p><p>如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。</p><p>## git commit 工具介绍</p><p>### Commitizen</p><p>可以使用典型的git工作流程或通过使用CLI向导Commitizen来添加提交消息格式。</p><p>```
-npm install -g commitizen
-```</p><p>安装以上，在项目目录里，运行下面的命令，使其支持 Angular 的 Commit message 格式。</p><p>```
-commitizen init cz-conventional-changelog &ndash;save &ndash;save-exact
-```
-以后，凡是用到 `git commit` 命令，一律改为使用 `git cz`。这时，就会出现选项，用来生成符合格式的 Commit message。</p><p>### [commitlint](<a href=https://commitlint.js.org/#/>https://commitlint.js.org/#/</a>)</p><p>[commitlint](<a href=https://github.com/conventional-changelog/commitlint>https://github.com/conventional-changelog/commitlint</a>) 用于检查 Node 项目的 Commit message 是否符合格式。</p><p>**[具体使用安装方法](<a href=https://commitlint.js.org/#/guides-local-setup>https://commitlint.js.org/#/guides-local-setup</a>)**</p><p>### 生成 Change log</p><p>如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成。生成的文档包括以下三个部分：</p><p>- New features</p><p>- Bug fixes</p><p>- Breaking changes.</p><p>每个部分都会罗列相关的 commit ，并且有指向这些 commit 的链接。当然，生成的文档允许手动修改，所以发布前，你还可以添加其他内容。</p><p>`[conventional-changelog](<a href=https://www.npmjs.com/package/conventional-changelog>https://www.npmjs.com/package/conventional-changelog</a>)` 就是生成 Change log 的工具，运行下面的命令即可。</p><p>```
-$ npm install -g conventional-changelog
+    scope: {
+      myAttr: &#39;@&#39;,
+    }
+
+    The removed `inject` wasn&#39;t generaly useful for directives so there should be no code using it.
+</code></pre></td></tr></table></div></div><p><strong>关闭 Issue</strong></p><p>如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Closes #234
+</code></pre></td></tr></table></div></div><h2 id=revert>Revert</h2><p>还有一种特殊情况，如果当前 <code>commit</code> 用于撤销以前的 commit，则必须以 <code>revert:</code> 开头，后面跟着被撤销 Commit 的 Header。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>revert: feat(pencil): add &#39;graphiteWidth&#39; option
+
+This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+</code></pre></td></tr></table></div></div><p>Body部分的格式是固定的，必须写成 <code>This reverts commit &amp;lt;hash>.</code>，其中的hash是被撤销 commit 的 <code>SHA</code> 标识符。</p><p>如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。</p><h2 id=git-commit-工具介绍>git commit 工具介绍</h2><h3 id=commitizen>Commitizen</h3><p>可以使用典型的git工作流程或通过使用CLI向导Commitizen来添加提交消息格式。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>npm install -g commitizen
+</code></pre></td></tr></table></div></div><p>安装以上，在项目目录里，运行下面的命令，使其支持 Angular 的 Commit message 格式。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>commitizen init cz-conventional-changelog --save --save-exact
+</code></pre></td></tr></table></div></div><p>以后，凡是用到 <code>git commit</code> 命令，一律改为使用 <code>git cz</code>。这时，就会出现选项，用来生成符合格式的 Commit message。</p><h3 id=commitlinthttpscommitlintjsorg><a href=https://commitlint.js.org/#/>commitlint</a></h3><p><a href=https://github.com/conventional-changelog/commitlint>commitlint</a> 用于检查 Node 项目的 Commit message 是否符合格式。</p><p><strong><a href=https://commitlint.js.org/#/guides-local-setup>具体使用安装方法</a></strong></p><h3 id=生成-change-log>生成 Change log</h3><p>如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成。生成的文档包括以下三个部分：</p><ul><li><p>New features</p></li><li><p>Bug fixes</p></li><li><p>Breaking changes.</p></li></ul><p>每个部分都会罗列相关的 commit ，并且有指向这些 commit 的链接。当然，生成的文档允许手动修改，所以发布前，你还可以添加其他内容。</p><p><code>[conventional-changelog](https://www.npmjs.com/package/conventional-changelog)</code> 就是生成 Change log 的工具，运行下面的命令即可。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ npm install -g conventional-changelog
 $ cd my-project
 $ conventional-changelog -p angular -i CHANGELOG.md -w
-```</p><p>-&mdash;
-参考：</p><blockquote><p>[Commit message 和 Change log 编写指南](<a href=http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html>http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html</a>)</p><p>[Contributing to AngularJS](<a href=https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#toc10>https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#toc10</a>)</p></blockquote></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+</code></pre></td></tr></table></div></div><hr><p>参考：</p><blockquote><p><a href=http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html>Commit message 和 Change log 编写指南</a></p><p><a href=https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#toc10>Contributing to AngularJS</a></p></blockquote></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>ZHIKING</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2020-05-05</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/frontend/>frontend</a>
 <a href=/tags/git/>git</a></div><nav class=post-nav><a class=next href=/post/2020/webpack-%E8%AD%A6%E5%91%8Awarning-in-asset-size-limit/><span class="next-text nav-default">WebPack 警告WARNING in asset size limit</span>
