@@ -1,7 +1,6 @@
 +++
 categories = ["frontend"]
 date = 2020-05-05T16:00:00Z
-draft = true
 tags = ["frontend", "git"]
 title = "git commit 规范指南"
 
